@@ -1,0 +1,15 @@
+
+.back-top.data-v-65227863 {
+	position: fixed;
+	right: 40px;
+	bottom: 200px;
+	border-radius: 50%;
+	font-size: 30px;
+	color: white;
+	-webkit-backdrop-filter: blur(10px);
+	        backdrop-filter: blur(10px);
+	-webkit-transform: translateX(100px);
+	        transform: translateX(100px);
+	/* opacity: 0.2; */
+}
+

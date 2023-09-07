@@ -1,0 +1,51 @@
+{
+  "id": "4230673",
+  "name": "openapi",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5387543",
+      "name": "删除",
+      "font_class": "shanchu",
+      "unicode": "eafb",
+      "unicode_decimal": 60155
+    },
+    {
+      "icon_id": "26519722",
+      "name": "缺省页_暂无数据",
+      "font_class": "queshengye_zanwushuju",
+      "unicode": "e760",
+      "unicode_decimal": 59232
+    },
+    {
+      "icon_id": "23416265",
+      "name": "回到顶部",
+      "font_class": "huidaodingbu",
+      "unicode": "e705",
+      "unicode_decimal": 59141
+    },
+    {
+      "icon_id": "6297334",
+      "name": "ic_chanpin",
+      "font_class": "ic_chanpin",
+      "unicode": "e71b",
+      "unicode_decimal": 59163
+    },
+    {
+      "icon_id": "1727524",
+      "name": "304错误、关闭、取消-方框",
+      "font_class": "cuowuguanbiquxiao-fangkuang",
+      "unicode": "e8e8",
+      "unicode_decimal": 59624
+    },
+    {
+      "icon_id": "21445608",
+      "name": "mobile-500",
+      "font_class": "mobile-500",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    }
+  ]
+}

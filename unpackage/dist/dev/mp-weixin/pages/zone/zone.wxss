@@ -1,0 +1,11 @@
+.content.data-v-60476086 {
+  width: 100%;
+}
+.content .dimc-list.data-v-60476086 {
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #161823;
+  padding-top: 190rpx;
+  padding-bottom: 80px;
+}
+

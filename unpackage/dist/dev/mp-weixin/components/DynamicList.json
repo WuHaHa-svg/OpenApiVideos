@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "empty-show": "/components/EmptyShow",
+    "confirm": "/components/Confirm"
+  }
+}

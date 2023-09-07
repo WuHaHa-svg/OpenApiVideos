@@ -1,0 +1,30 @@
+{
+  "id": "4230673",
+  "name": "openapi",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1727524",
+      "name": "304错误、关闭、取消-方框",
+      "font_class": "cuowuguanbiquxiao-fangkuang",
+      "unicode": "e8e8",
+      "unicode_decimal": 59624
+    },
+    {
+      "icon_id": "10496865",
+      "name": "关闭",
+      "font_class": "guanbi",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "21445608",
+      "name": "mobile-500",
+      "font_class": "mobile-500",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    }
+  ]
+}

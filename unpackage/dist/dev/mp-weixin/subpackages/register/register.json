@@ -1,0 +1,7 @@
+{
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "uv-code-input": "/uni_modules/uv-code-input/components/uv-code-input/uv-code-input",
+    "system-height": "/components/SystemHeight"
+  }
+}

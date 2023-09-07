@@ -1,0 +1,27 @@
+.infor.data-v-399f839a {
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: fixed;
+  left: 4vw;
+  bottom: 100px;
+  width: 60vw;
+  height: 180px;
+  color: #FFF;
+}
+.infor .avatar.data-v-399f839a {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #FFF;
+}
+.infor .infor-text.data-v-399f839a {
+  display: block;
+  width: 100%;
+  font-size: 18px;
+}
+.infor .info-text-1.data-v-399f839a {
+  font-size: 14px;
+}
+

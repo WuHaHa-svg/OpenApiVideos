@@ -1,0 +1,9 @@
+{
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "index-nav": "/components/IndexNav",
+    "dynamic-list": "/components/DynamicList",
+    "back-top": "/components/BackTop",
+    "tab-bar": "/components/TabBar"
+  }
+}

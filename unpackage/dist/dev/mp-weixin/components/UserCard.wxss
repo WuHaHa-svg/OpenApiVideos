@@ -1,0 +1,54 @@
+.user-box.data-v-7b991056 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 80%;
+  height: 50%;
+  margin: 0 auto;
+  border: 2px solid #FFF;
+  border-radius: 10px;
+}
+.user-box .title.data-v-7b991056 {
+  display: flex;
+  flex-direction: column;
+  height: 15vh;
+  line-height: 10vh;
+  width: 100%;
+}
+.user-box .title .login-pic.data-v-7b991056 {
+  display: block;
+  flex: 1;
+  color: #FFF;
+  text-align: center;
+  font-size: 170rpx;
+  text-shadow: -1px -1px aqua, 1px 1px red;
+}
+.user-box .title .login-tip.data-v-7b991056 {
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: bolder;
+  text-align: center;
+  text-shadow: -1px -1px aqua, 1px 1px red;
+  color: #CCC;
+}
+.user-box .btn-box.data-v-7b991056 {
+  display: flex;
+  justify-content: space-around;
+}
+.user-box .btn-box .btn.data-v-7b991056 {
+  height: 5vh;
+  line-height: 5vh;
+  width: 40%;
+  color: #FFF;
+  font-weight: bolder;
+}
+.user-box .btn-box .btn.data-v-7b991056:first-child {
+  background-color: rgba(0, 250, 240, 0.8);
+}
+.user-box .btn-box .btn.data-v-7b991056:last-child {
+  background-color: rgba(254, 44, 85, 0.8);
+}
+

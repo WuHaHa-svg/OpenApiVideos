@@ -1,0 +1,29 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/zone/zone",
+    "pages/mine/mine",
+    "pages/wallpaper/wallpaper"
+  ],
+  "subPackages": [
+    {
+      "root": "subpackages",
+      "pages": [
+        "videoList/videoList",
+        "uploadZone/uploadZone",
+        "login/login",
+        "register/register",
+        "editUserData/editUserData"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "custom",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#000"
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {}
+}

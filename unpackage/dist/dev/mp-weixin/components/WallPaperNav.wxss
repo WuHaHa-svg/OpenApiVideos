@@ -1,0 +1,34 @@
+.nav-box.data-v-3774863c {
+  width: 100%;
+  z-index: 9999;
+  position: fixed;
+  left: 0;
+  top: 0;
+  -webkit-backdrop-filter: blur(30px);
+          backdrop-filter: blur(30px);
+}
+.nav-box .nav.data-v-3774863c {
+  width: 100%;
+  height: 80rpx;
+}
+.nav-box .nav .type-list.data-v-3774863c {
+  width: 100%;
+  height: 100%;
+  white-space: nowrap;
+}
+.nav-box .nav .type-list .type.data-v-3774863c {
+  display: inline-block;
+  width: 25%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-weight: bolder;
+  color: #FFF;
+}
+.nav-box .nav .type-list .type.data-v-3774863c:last-child {
+  margin-right: 6em;
+}
+.nav-box .nav .type-list .active.data-v-3774863c {
+  text-shadow: -1px -1px aqua, 1px 1px red;
+}
+

@@ -1,0 +1,90 @@
+.content.data-v-303c0d0f {
+  height: 100%;
+  width: 100%;
+}
+.login-container.data-v-303c0d0f {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+  top: 25vh;
+  left: 10vw;
+  box-sizing: border-box;
+  width: 80vw;
+  height: 50vh;
+  padding: 0 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  box-shadow: 3px 3px 60px rgba(255, 255, 255, 0.3), -3px -3px 60px rgba(255, 255, 255, 0.3);
+}
+.login-container .login-title.data-v-303c0d0f {
+  height: 10vh;
+}
+.login-container .login-title text.data-v-303c0d0f {
+  display: block;
+  color: #FFF;
+  text-shadow: -1px -1px aqua, 1px 1px red;
+}
+.login-container .login-title text.data-v-303c0d0f:nth-child(1) {
+  font-size: 40px;
+  margin-bottom: 4px;
+}
+.login-container .login-title text.data-v-303c0d0f:nth-child(2) {
+  font-size: 1em;
+  font-style: italic;
+}
+.login-container .input-box.data-v-303c0d0f {
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.login-container .input-box .input.data-v-303c0d0f {
+  height: 25%;
+  color: #FFF;
+  text-align: center;
+  border-bottom: 1px solid red;
+}
+.login-container .input-box .input.data-v-303c0d0f:nth-child(1) {
+  border-bottom: 1px solid aqua;
+}
+.login-container .input-box .code.data-v-303c0d0f {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.login-container .input-box .code text.data-v-303c0d0f {
+  display: block;
+  color: #828282;
+  font-size: 14px;
+}
+.login-container .btns.data-v-303c0d0f {
+  display: flex;
+  justify-content: space-around;
+  height: 5vh;
+}
+.login-container .btns .btn.data-v-303c0d0f {
+  line-height: 5vh;
+  width: 40%;
+  color: #FFF;
+  font-weight: bolder;
+  font-size: 18px;
+}
+.login-container .btns .btn.data-v-303c0d0f:first-child {
+  background-color: rgba(0, 250, 240, 0.8);
+}
+.login-container .btns .btn.data-v-303c0d0f:last-child {
+  background-color: rgba(254, 44, 85, 0.8);
+}
+.quit.data-v-303c0d0f {
+  position: fixed;
+  bottom: 10vh;
+  left: 50vw;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  font-size: 40px;
+  color: #FFF;
+  text-shadow: -1px -1px aqua, 1px 1px red;
+}
+
