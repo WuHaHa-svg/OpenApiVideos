@@ -58,7 +58,7 @@ module.exports = _nonIterableRest, module.exports.__esModule = true, module.expo
 
 /***/ }),
 
-/***/ 100:
+/***/ 101:
 /*!*************************************************************!*\
   !*** E:/UNI-APP/OpenApiVideos/js_sdk/mineking-tool/tool.js ***!
   \*************************************************************/
@@ -769,7 +769,7 @@ exports.colorToRGB = colorToRGB;
 
 /***/ }),
 
-/***/ 101:
+/***/ 102:
 /*!*************************************************!*\
   !*** E:/UNI-APP/OpenApiVideos/utils/SetData.js ***!
   \*************************************************/
@@ -827,7 +827,7 @@ module.exports = _defineProperty, module.exports.__esModule = true, module.expor
 
 /***/ }),
 
-/***/ 118:
+/***/ 119:
 /*!**************************************************!*\
   !*** E:/UNI-APP/OpenApiVideos/utils/DateArry.js ***!
   \**************************************************/
@@ -2532,7 +2532,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"OpenApiVideos","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"OpenApiVideos","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -3440,7 +3440,7 @@ module.exports = _iterableToArray, module.exports.__esModule = true, module.expo
 
 /***/ }),
 
-/***/ 203:
+/***/ 204:
 /*!******************************************************************************!*\
   !*** E:/UNI-APP/OpenApiVideos/uni_modules/uv-ui-tools/libs/mixin/mpMixin.js ***!
   \******************************************************************************/
@@ -3464,7 +3464,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 204:
+/***/ 205:
 /*!****************************************************************************!*\
   !*** E:/UNI-APP/OpenApiVideos/uni_modules/uv-ui-tools/libs/mixin/mixin.js ***!
   \****************************************************************************/
@@ -3481,8 +3481,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ 11));
-var index = _interopRequireWildcard(__webpack_require__(/*! ../function/index.js */ 205));
-var test = _interopRequireWildcard(__webpack_require__(/*! ../function/test.js */ 206));
+var index = _interopRequireWildcard(__webpack_require__(/*! ../function/index.js */ 206));
+var test = _interopRequireWildcard(__webpack_require__(/*! ../function/test.js */ 207));
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
@@ -3644,7 +3644,7 @@ exports.default = _default2;
 
 /***/ }),
 
-/***/ 205:
+/***/ 206:
 /*!*******************************************************************************!*\
   !*** E:/UNI-APP/OpenApiVideos/uni_modules/uv-ui-tools/libs/function/index.js ***!
   \*******************************************************************************/
@@ -3690,8 +3690,8 @@ exports.trim = trim;
 exports.type2icon = type2icon;
 var _slicedToArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ 5));
 var _typeof2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/typeof */ 13));
-var _test = __webpack_require__(/*! ./test.js */ 206);
-var _digit = __webpack_require__(/*! ./digit.js */ 207);
+var _test = __webpack_require__(/*! ./test.js */ 207);
+var _digit = __webpack_require__(/*! ./digit.js */ 208);
 /**
  * @description 如果value小于min，取min；如果value大于max，取max
  * @param {number} min
@@ -4443,7 +4443,7 @@ function setConfig(_ref5) {
 
 /***/ }),
 
-/***/ 206:
+/***/ 207:
 /*!******************************************************************************!*\
   !*** E:/UNI-APP/OpenApiVideos/uni_modules/uv-ui-tools/libs/function/test.js ***!
   \******************************************************************************/
@@ -4744,7 +4744,7 @@ function regExp(o) {
 
 /***/ }),
 
-/***/ 207:
+/***/ 208:
 /*!*******************************************************************************!*\
   !*** E:/UNI-APP/OpenApiVideos/uni_modules/uv-ui-tools/libs/function/digit.js ***!
   \*******************************************************************************/
@@ -4765,7 +4765,7 @@ exports.minus = minus;
 exports.plus = plus;
 exports.round = round;
 exports.times = times;
-var _toArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/toArray */ 208));
+var _toArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/toArray */ 209));
 var _boundaryCheckingState = true; // 是否进行越界检查的全局开关
 
 /**
@@ -4947,7 +4947,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 208:
+/***/ 209:
 /*!********************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/toArray.js ***!
   \********************************************************/
@@ -4965,7 +4965,21 @@ module.exports = _toArray, module.exports.__esModule = true, module.exports["def
 
 /***/ }),
 
-/***/ 209:
+/***/ 21:
+/*!******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/nonIterableSpread.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+module.exports = _nonIterableSpread, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 210:
 /*!********************************************************************************************!*\
   !*** E:/UNI-APP/OpenApiVideos/uni_modules/uv-code-input/components/uv-code-input/props.js ***!
   \********************************************************************************************/
@@ -5068,20 +5082,6 @@ var _default = {
 };
 exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
-
-/***/ }),
-
-/***/ 21:
-/*!******************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/nonIterableSpread.js ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _nonIterableSpread() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-module.exports = _nonIterableSpread, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
 
@@ -11206,7 +11206,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"OpenApiVideos","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"OpenApiVideos","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -11227,14 +11227,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"OpenApiVideos","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"OpenApiVideos","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"OpenApiVideos","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"OpenApiVideos","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -11330,7 +11330,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"OpenApiVideos","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"OpenApiVideos","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -12013,7 +12013,8 @@ var _default = {
       'name': '发个动态',
       'tag': 'upDimc',
       'url': '/subpackages/uploadZone/uploadZone'
-    }]
+    }],
+    isUpload: false
   },
   mutations: {
     setTop: function setTop(state, value) {
@@ -12025,6 +12026,9 @@ var _default = {
     },
     changeTag: function changeTag(state, value) {
       state.activeTag = value;
+    },
+    changeUpload: function changeUpload(state, value) {
+      state.isUpload = value;
     }
   },
   actions: {},
@@ -14435,6 +14439,116 @@ function _arrayLikeToArray(arr, len) {
   return arr2;
 }
 module.exports = _arrayLikeToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 92:
+/*!***********************************************************!*\
+  !*** E:/UNI-APP/OpenApiVideos/utils/server/UploadImg1.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.GetServerImgUrl = exports.GetImgTempUrls = void 0;
+var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 61));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 63));
+var GetImgTempUrls = function GetImgTempUrls() {
+  var count = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+  return new Promise(function (resolve, reject) {
+    uni.chooseImage({
+      count: count,
+      crop: {
+        width: 200,
+        height: 200
+      },
+      sourceType: ['album'],
+      success: function success(res) {
+        resolve(res.tempFilePaths);
+      }
+    });
+  });
+};
+exports.GetImgTempUrls = GetImgTempUrls;
+var GetServerImgUrl = function GetServerImgUrl(tempFilePath) {
+  var http = "https://api.apiopen.top";
+  return new Promise(function (resolve, reject) {
+    uni.uploadFile({
+      url: "https://api.apiopen.top/api/uploadFile",
+      filePath: tempFilePath,
+      name: "file",
+      header: {
+        "Content-Type": "image/png",
+        "accept": "application/json"
+      },
+      success: function success(res) {
+        if (JSON.parse(res.data).code !== 200) {
+          resolve("上传出错");
+          console.log(res);
+        } else {
+          var imgUrl = http + JSON.parse(res.data).result.name;
+          resolve(imgUrl);
+        }
+      }
+    });
+  });
+};
+exports.GetServerImgUrl = GetServerImgUrl;
+var allDone = /*#__PURE__*/function () {
+  var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
+    var count,
+      resUrl,
+      tempFilePaths,
+      i,
+      res,
+      _args = arguments;
+    return _regenerator.default.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            count = _args.length > 0 && _args[0] !== undefined ? _args[0] : 1;
+            resUrl = [];
+            _context.next = 4;
+            return ChooseImg(count);
+          case 4:
+            tempFilePaths = _context.sent;
+            i = 0;
+          case 6:
+            if (!(i < tempFilePaths.length)) {
+              _context.next = 14;
+              break;
+            }
+            _context.next = 9;
+            return UploadImg(tempFilePaths[i]);
+          case 9:
+            res = _context.sent;
+            resUrl.push(res);
+          case 11:
+            i++;
+            _context.next = 6;
+            break;
+          case 14:
+            return _context.abrupt("return", new Promise(function (resolve, reject) {
+              resolve(resUrl);
+            }));
+          case 15:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+  return function allDone() {
+    return _ref.apply(this, arguments);
+  };
+}();
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ })
 

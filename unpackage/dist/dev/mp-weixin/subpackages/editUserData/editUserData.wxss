@@ -43,10 +43,17 @@
           transform: translate(-30%, -10%);
 }
 .content .setting-item .input-title.data-v-7aa366e2 {
-  width: 20%;
+  max-width: 50%;
   padding-right: 10px;
   text-shadow: -1px -1px aqua, 1px 1px red;
   font-weight: bolder;
+}
+.content .setting-item .store-mode.data-v-7aa366e2 {
+  width: 30%;
+  font-size: 15px;
+  height: 20px;
+  line-height: 20px;
+  border: 1px solid #CCC;
 }
 .content .setting-item .input.data-v-7aa366e2 {
   flex: 1;

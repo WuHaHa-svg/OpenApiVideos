@@ -21,6 +21,11 @@
 			<view class="input-title">生日：</view>
 			<input class="input" type="text" v-model="birDay" disabled @tap="changeBirDay">
 		</view>
+		<view class="setting-item">
+			<view class="input-title">存储模式：</view>
+			<view class="store-mode">{{storeMode}}</view>
+			<switch :checked="isUpload" @change="changeUpload" color="aqua"/>
+		</view>
 		<view class="opt-btns">
 			<button @click="logout" class="opt-btn logout">注销</button>
 			<button @click="back" class="opt-btn back">返回</button>
@@ -53,6 +58,8 @@
 	import {SetUsrData} from '@/utils/SetData.js'
 	import {ArryToDate,DateToArry} from "@/utils/DateArry.js"
 	import allDone from "@/utils/server/UploadImg.js"
+	import {GetImgTempUrls,GetServerImgUrl} from "@/utils/server/UploadImg1.js"
+	
 	export default {
 		data() {
 			const years = []
@@ -75,7 +82,8 @@
 				days,
 				visible: false,
 				birDay: "",
-				UserData: {}
+				UserData: {},
+				storeMode:""
 			}
 		},
 		created() {
@@ -86,17 +94,41 @@
 			top() {
 				return this.$store.state.BaseConfig.top + 'px'
 			},
+			isUpload() {
+				return this.$store.state.BaseConfig.isUpload
+			},
+		},
+		watch:{
+			isUpload:{
+				immediate:true,
+				handler(newV,oldV){
+					if (newV) this.storeMode="存储到云端"
+					else this.storeMode="存储到本机"
+				}
+			}
 		},
 		methods: {
+			changeUpload(e){
+				if (e.detail.value) this.$toast("所有图片将存储的服务器，次日清除","none")
+				else this.$toast("所有图片将存储在本机缓存，不再上传服务器","none")
+				this.$store.commit('BaseConfig/changeUpload', e.detail.value)
+			},
 			async chooseAvatar(){
-				let imgUrl = await allDone()
-				console.log("结果",imgUrl)
+				let imgUrl = await GetImgTempUrls()
+				console.log("缓存",imgUrl[0])
 				if(!imgUrl) {
-					this.$toast("上传失败！","none")
+					this.$toast("未选择图片！","none")
 					return
 				}
-				this.UserData.head_url = imgUrl[0]
-				console.log(this.UserData)
+				if (this.isUpload){
+					// 传到服务
+					let serverImgUrl = await GetServerImgUrl(imgUrl[0])
+					console.log("服务",serverImgUrl);
+					this.UserData.head_url = serverImgUrl
+				} else {
+					// 放在缓存
+					this.UserData.head_url = imgUrl[0]
+				}
 			},
 			async getBlur(){
 				console.log("获取名言")
@@ -200,12 +232,19 @@
 			}
 
 			.input-title {
-				width: 20%;
+				// width: 20%;
+				max-width: 50%;
 				padding-right: 10px;
 				text-shadow: -1px -1px aqua, 1px 1px red;
 				font-weight: bolder;
 			}
-
+			.store-mode{
+				width: 30%;
+				font-size: 15px;
+				height: 20px;
+				line-height: 20px;
+				border: 1px solid #CCC;
+			}
 			.input {
 				flex: 1;
 				border: 1px solid #CCC;

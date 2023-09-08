@@ -11,7 +11,7 @@
 			</view>
 			<view class="add-pic">
 				<view class="add">
-					<image class="pic" src="/static/addPic.png" mode="aspectFill" @tap="addPic()"></image>
+					<image class="pic" src="/static/addPic.png" mode="aspectFill" @tap="addPic"></image>
 				</view>
 				<view class="add" v-for="(item,index) in addList" :key="index">
 					<image class="pic" :src="item" mode="aspectFill" :lazy-load="true" @longpress="longPres(index)"></image>
@@ -31,8 +31,8 @@
 	import IndexNav from "@/components/IndexNav.vue"
 	import Confirm from "@/components/Confirm.vue"
 	import TabBar from "@/components/TabBar.vue"
-	import allDone from "@/utils/server/UploadImg"
 	import { UploadZoneApi } from "@/utils/server/Api"
+	import {GetImgTempUrls,GetServerImgUrl} from "@/utils/server/UploadImg1.js"
 	export default {
 		components: {
 			IndexNav,
@@ -47,10 +47,30 @@
 				isConfrm:false
 			}
 		},
+		computed:{
+			isUpload() {
+				return this.$store.state.BaseConfig.isUpload
+			}
+		},
 		methods: {
 			async sendDynamic() {
 				console.log("发送");
-				let data = {text:this.text,images:this.addList}
+				if(this.text === ""){
+					this.$toast("请填写文本内容！","error")
+					return
+				}
+				// 如果开启上传云端模式
+				if(this.isUpload){
+					let serverUrls = []
+					for(let i =0; i<this.addList.length; i++){
+						let url = await GetServerImgUrl(this.addList[i])
+						serverUrls.push(url)
+					}
+					console.log("服务",serverUrls);
+					var data = {text:this.text,images:serverUrls}
+				}else{
+					var data = {text:this.text,images:this.addList}
+				}
 				let res = await UploadZoneApi(data)
 				console.log(res);
 				if(res.data.code === 200){
@@ -58,11 +78,22 @@
 					this.$toast("发送成功！","success")
 				}
 			},
-			async addPic() {
-				console.log("添加图片");
-				let list = await allDone(9)
+			async addPic(){
+				console.log(this.addList.length);
+				console.log(this.addList.length > 5);
+				if(this.addList.length >= 5){
+					this.$toast("最多五张图片,可长按删除已选择的图片","none")
+					return
+				}
+				let list = await GetImgTempUrls(5)
 				this.addList = [...this.addList,...list]
+				console.log("缓存",this.addList);
 			},
+			// async addPic() {
+			// 	console.log("添加图片");
+			// 	let list = await allDone(9)
+			// 	this.addList = [...this.addList,...list]
+			// },
 			longPres(index){
 				this.delINdex = index
 				this.isConfrm = true

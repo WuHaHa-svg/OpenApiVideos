@@ -148,17 +148,17 @@ var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/r
 var _Api = __webpack_require__(/*! @/utils/server/Api */ 74);
 var WallPaperNav = function WallPaperNav() {
   __webpack_require__.e(/*! require.ensure | components/WallPaperNav */ "components/WallPaperNav").then((function () {
-    return resolve(__webpack_require__(/*! @/components/WallPaperNav.vue */ 170));
+    return resolve(__webpack_require__(/*! @/components/WallPaperNav.vue */ 171));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var TabBar = function TabBar() {
   __webpack_require__.e(/*! require.ensure | components/TabBar */ "components/TabBar").then((function () {
-    return resolve(__webpack_require__(/*! @/components/TabBar.vue */ 121));
+    return resolve(__webpack_require__(/*! @/components/TabBar.vue */ 122));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var BackTop = function BackTop() {
   __webpack_require__.e(/*! require.ensure | components/BackTop */ "components/BackTop").then((function () {
-    return resolve(__webpack_require__(/*! @/components/BackTop.vue */ 149));
+    return resolve(__webpack_require__(/*! @/components/BackTop.vue */ 150));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var _default = {

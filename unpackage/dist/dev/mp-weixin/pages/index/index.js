@@ -143,17 +143,17 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var TabBar = function TabBar() {
   __webpack_require__.e(/*! require.ensure | components/TabBar */ "components/TabBar").then((function () {
-    return resolve(__webpack_require__(/*! @/components/TabBar.vue */ 121));
+    return resolve(__webpack_require__(/*! @/components/TabBar.vue */ 122));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var IndexNav = function IndexNav() {
   __webpack_require__.e(/*! require.ensure | components/IndexNav */ "components/IndexNav").then((function () {
-    return resolve(__webpack_require__(/*! @/components/IndexNav.vue */ 128));
+    return resolve(__webpack_require__(/*! @/components/IndexNav.vue */ 129));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var VideoList = function VideoList() {
   Promise.all(/*! require.ensure | components/VideoList */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/VideoList")]).then((function () {
-    return resolve(__webpack_require__(/*! @/components/VideoList.vue */ 135));
+    return resolve(__webpack_require__(/*! @/components/VideoList.vue */ 136));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var _default = {

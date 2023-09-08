@@ -148,22 +148,22 @@ var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/r
 var _Api = __webpack_require__(/*! @/utils/server/Api.js */ 74);
 var TabBar = function TabBar() {
   __webpack_require__.e(/*! require.ensure | components/TabBar */ "components/TabBar").then((function () {
-    return resolve(__webpack_require__(/*! @/components/TabBar.vue */ 121));
+    return resolve(__webpack_require__(/*! @/components/TabBar.vue */ 122));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var IndexNav = function IndexNav() {
   __webpack_require__.e(/*! require.ensure | components/IndexNav */ "components/IndexNav").then((function () {
-    return resolve(__webpack_require__(/*! @/components/IndexNav.vue */ 128));
+    return resolve(__webpack_require__(/*! @/components/IndexNav.vue */ 129));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var VideoPlayer = function VideoPlayer() {
   __webpack_require__.e(/*! require.ensure | components/VideoPlayer */ "components/VideoPlayer").then((function () {
-    return resolve(__webpack_require__(/*! @/components/VideoPlayer.vue */ 177));
+    return resolve(__webpack_require__(/*! @/components/VideoPlayer.vue */ 178));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var InformationBox = function InformationBox() {
   __webpack_require__.e(/*! require.ensure | components/InformationBox */ "components/InformationBox").then((function () {
-    return resolve(__webpack_require__(/*! @/components/InformationBox.vue */ 184));
+    return resolve(__webpack_require__(/*! @/components/InformationBox.vue */ 185));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var _default = {
