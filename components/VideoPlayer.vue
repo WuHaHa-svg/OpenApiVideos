@@ -2,10 +2,10 @@
 
 	<view class="video-player" @tap="changeState">
 		<PauseIcon :state="state"></PauseIcon>
-		<video id="myVideo" :muted="false" :loop="true" 
-		:autoplay="idx===0?true:false" :controls="false" 
-		:show-center-play-btn="false" :enable-progress-gesture="false"
-		class="video" :src="videoItem.playurl"></video>
+		<video id="myVideo" :muted="false" :loop="true" :autoplay="auto"
+		:controls="false" :show-center-play-btn="false" 
+		:enable-progress-gesture="false" class="video" 
+		:src="videoItem.playurl"></video>
 	</view>
 </template>
 
@@ -19,8 +19,8 @@
 				state:true
 			};
 		},
-		props:['videoItem','idx'],
-		onReady() {
+		props:['videoItem','auto'],
+		created() {
 			//仅wxapp
 			this.videoContext = uni.createVideoContext('myVideo',this)
 		},

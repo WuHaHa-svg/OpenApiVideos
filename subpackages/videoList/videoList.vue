@@ -19,7 +19,7 @@
 			<view class="btn" @tap="closePlay()">
 				<span class="iconfont icon-cuowuguanbiquxiao-fangkuang"></span>
 			</view>
-			<VideoPlayer :videoItem="videoItem" :idx="0"></VideoPlayer>
+			<VideoPlayer :videoItem="videoItem" :auto="true"></VideoPlayer>
 			<InformationBox :videoItem="videoItem"></InformationBox>
 		</view>
 		<TabBar></TabBar>

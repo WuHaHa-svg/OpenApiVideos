@@ -6,7 +6,7 @@
 			:current="current" :circular="true" 
 			@change="change">
 				<swiper-item v-for="item,index in videoList" :key="index">
-					<VideoPlayer ref="player" :videoItem="item" :idx="index"></VideoPlayer>
+					<VideoPlayer ref="player" :videoItem="item"></VideoPlayer>
 					<InformationBox :videoItem="item"></InformationBox>
 				</swiper-item>
 			</swiper>
@@ -33,7 +33,7 @@
 				videoList: [],
 				current:0,
 				pageStartY:0,
-				pageY:0
+				pageY:0,
 			};
 		},
 		created() {
@@ -43,7 +43,11 @@
 			async getVideo(size,...params){
 				let data = {"page": Math.floor(Math.random()*300),size}
 				let res = await VideoApi(data)
-				if(size === 4) this.videoList = res.data.result.list
+				if(size === 4) {
+					this.videoList = res.data.result.list
+					// 首次队列加载完毕后,首个视频自动播放
+					this.$nextTick(()=> this.$refs.player[0].play())
+				}
 				else{
 					let index = params[0]
 					this.videoList[index] = res.data.result.list[0]
