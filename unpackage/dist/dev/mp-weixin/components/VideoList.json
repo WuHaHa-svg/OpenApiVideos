@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "video-player": "/components/VideoPlayer",
-    "information-box": "/components/InformationBox"
-  },
-  "component": true
-}

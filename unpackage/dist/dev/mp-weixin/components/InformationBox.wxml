@@ -1,1 +1,0 @@
-<view class="infor data-v-399f839a"><image class="avatar data-v-399f839a" src="{{videoItem.picuser}}" mode></image><text class="info-text data-v-399f839a">{{videoItem.alias}}</text><text class="info-text-1 data-v-399f839a">{{videoItem.title}}</text></view>

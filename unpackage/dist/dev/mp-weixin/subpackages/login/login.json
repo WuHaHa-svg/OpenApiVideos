@@ -1,6 +1,0 @@
-{
-  "enablePullDownRefresh": false,
-  "usingComponents": {
-    "system-height": "/components/SystemHeight"
-  }
-}

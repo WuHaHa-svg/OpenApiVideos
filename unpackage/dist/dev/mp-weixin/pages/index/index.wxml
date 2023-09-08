@@ -1,1 +1,0 @@
-<view class="content data-v-57280228"><index-nav vue-id="8dd740cc-1" left="推介" right="列表" class="data-v-57280228" bind:__l="__l"></index-nav><video-list vue-id="8dd740cc-2" data-ref="VideoList" class="data-v-57280228 vue-ref" bind:__l="__l"></video-list><tab-bar vue-id="8dd740cc-3" class="data-v-57280228" bind:__l="__l"></tab-bar></view>

@@ -1,8 +1,0 @@
-{
-  "enablePullDownRefresh": false,
-  "usingComponents": {
-    "index-nav": "/components/IndexNav",
-    "confirm": "/components/Confirm",
-    "tab-bar": "/components/TabBar"
-  }
-}

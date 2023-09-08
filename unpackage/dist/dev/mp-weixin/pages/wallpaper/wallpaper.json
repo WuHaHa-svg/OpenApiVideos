@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "",
-  "enablePullDownRefresh": false,
-  "usingComponents": {
-    "wall-paper-nav": "/components/WallPaperNav",
-    "tab-bar": "/components/TabBar",
-    "back-top": "/components/BackTop"
-  }
-}

@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "tab-bar": "/components/TabBar",
-    "index-nav": "/components/IndexNav",
-    "video-list": "/components/VideoList"
-  }
-}

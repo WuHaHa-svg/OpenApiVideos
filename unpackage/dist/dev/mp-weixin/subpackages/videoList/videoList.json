@@ -1,9 +1,0 @@
-{
-  "enablePullDownRefresh": false,
-  "usingComponents": {
-    "tab-bar": "/components/TabBar",
-    "index-nav": "/components/IndexNav",
-    "video-player": "/components/VideoPlayer",
-    "information-box": "/components/InformationBox"
-  }
-}
