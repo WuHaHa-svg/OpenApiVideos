@@ -1,4 +1,4 @@
-function ChooseImg(count) {
+export const GetImgTempUrls = (count=1)=>{
 	return new Promise((resolve, reject) => {
 		uni.chooseImage({
 			count,
@@ -14,7 +14,7 @@ function ChooseImg(count) {
 	})
 }
 
-function UploadImg(tempFilePath) {
+export const GetServerImgUrl = (tempFilePath)=>{
 	let http = "https://api.apiopen.top"
 	return new Promise((resolve, reject) => {
 		uni.uploadFile({
@@ -38,16 +38,4 @@ function UploadImg(tempFilePath) {
 	})
 }
 
-const allDone = async (count=1)=>{
-	let resUrl = []
-	let tempFilePaths = await ChooseImg(count)
-	for (let i = 0; i < tempFilePaths.length; i ++){
-		let res = await UploadImg(tempFilePaths[i])
-		resUrl.push(res)
-	}
-	return new Promise((resolve,reject)=>{
-		resolve(resUrl)
-	})
-}
 
-export default allDone

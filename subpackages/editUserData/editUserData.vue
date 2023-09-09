@@ -57,8 +57,7 @@
 	import {GetUsrData} from '@/utils/GetData'
 	import {SetUsrData} from '@/utils/SetData.js'
 	import {ArryToDate,DateToArry} from "@/utils/DateArry.js"
-	import allDone from "@/utils/server/UploadImg.js"
-	import {GetImgTempUrls,GetServerImgUrl} from "@/utils/server/UploadImg1.js"
+	import {GetImgTempUrls,GetServerImgUrl} from "@/utils/server/UploadImg.js"
 	
 	export default {
 		data() {
@@ -109,7 +108,7 @@
 		},
 		methods: {
 			changeUpload(e){
-				if (e.detail.value) this.$toast("所有图片将存储的服务器，次日清除","none")
+				if (e.detail.value) this.$toast("所有图片将存储到服务器，次日清除","none")
 				else this.$toast("所有图片将存储在本机缓存，不再上传服务器","none")
 				this.$store.commit('BaseConfig/changeUpload', e.detail.value)
 			},
@@ -138,10 +137,10 @@
 			},
 			async submit(){
 				this.UserData.birthday = this.birDay
-				console.log("新数据")
-				console.log(this.UserData)
+				// console.log("新数据")
+				// console.log(this.UserData)
 				let res = await UpdateUserApi(this.UserData)
-				console.log(res)
+				// console.log(res)
 				if(res.data.code !==200){
 					this.$toast("信息修改失败！","error")
 				} else {
@@ -214,7 +213,7 @@
 			// position: relative;
 			display: flex;
 			justify-content: space-between;
-			align-items: center;
+			align-items: baseline;
 			height: 10vh;
 			line-height: 10vh;
 			font-size: 20px;
@@ -232,17 +231,16 @@
 			}
 
 			.input-title {
-				// width: 20%;
 				max-width: 50%;
 				padding-right: 10px;
 				text-shadow: -1px -1px aqua, 1px 1px red;
 				font-weight: bolder;
 			}
 			.store-mode{
-				width: 30%;
-				font-size: 15px;
-				height: 20px;
-				line-height: 20px;
+				flex: 1;
+				margin-right: 8px;
+				height: 22px;
+				line-height: 22px;
 				border: 1px solid #CCC;
 			}
 			.input {

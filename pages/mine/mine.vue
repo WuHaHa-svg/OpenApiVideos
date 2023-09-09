@@ -6,7 +6,7 @@
 				<text class="blur-text">{{UserData.blurb?UserData.blurb:"这个家伙很懒，什么简介也没有..."}}</text>
 			</view>
 			<view class="user-info">
-				<image class="user-img" :src="UserData.head_url" mode="aspectFill" @tap="chooseAvatar"></image>
+				<image class="user-img" :src="avatarUrl" mode="aspectFill" @tap="chooseAvatar"></image>
 				<view class="edit-user" @tap="ToEditUser">账户资料</view>
 				<view class="user-info-text">
 					<text class="nick-name">{{UserData.name?UserData.name:"未设置昵称"}}</text>
@@ -23,6 +23,7 @@
 		</view>
 		<BackTop :TopBtn="TopBtn"></BackTop>
 		<TabBar></TabBar>
+		<Confirm :status="isConfrm" title="是否使用此头像？" @Confm="useAvatar" @Cancl="noUse" ></Confirm>
 	</view>
 </template>
 
@@ -32,8 +33,11 @@
 	import UserCard from "@/components/UserCard.vue"
 	import TabBar from "@/components/TabBar.vue"
 	import BackTop from "@/components/BackTop.vue"
+	import Confirm from "@/components/Confirm.vue"
 	import {GetUsrData} from "@/utils/GetData.js"
-	import allDone from "@/utils/server/UploadImg.js"
+	import {GetImgTempUrls,GetServerImgUrl} from "@/utils/server/UploadImg.js"
+	import { UpdateUserApi } from "../../utils/server/Api"
+	import { SetUsrData } from "../../utils/SetData"
 	
 	export default {
 		components: {
@@ -41,17 +45,21 @@
 			DynamicList,
 			UserCard,
 			BackTop,
+			Confirm,
 			TabBar
 		},
 		data() {
 			return {
 				UserData:{},
+				avatarUrl:"",
 				page:1,
-				TopBtn:false
+				TopBtn:false,
+				isConfrm:false,
 			}
 		},
 		created() {
 			this.UserData = GetUsrData()
+			this.avatarUrl = this.UserData.head_url
 		},
 		onPageScroll(e) {
 			if (e.scrollTop >= 600) {
@@ -71,16 +79,38 @@
 				return uni.getStorageSync('isLogin')
 			}
 		},
+		
 		methods: {
-			async chooseAvatar(){
-				let imgUrl = await allDone()
-				console.log("结果",imgUrl)
-				if(!imgUrl) {
-					this.$toast("上传失败！","none")
-					return
+			async useAvatar(){
+				if (this.$store.state.BaseConfig.isUpload){
+					// 图片上传服务器
+					let url = await GetServerImgUrl(this.avatarUrl)
+					console.log("服务：",url);
+					this.UserData.head_url = url
+					this.avatarUrl = this.UserData.head_url
+				} else {
+					this.UserData.head_url = this.avatarUrl
 				}
-				this.UserData.head_url = imgUrl[0]
-				console.log(this.UserData)
+				// 头像链接同步服务器
+				let res = await UpdateUserApi(this.UserData)
+				console.log(res);
+				if (res.data.code === 200){
+					this.$toast("头像设置成功！","success")
+					// 头像链接保存本地
+					SetUsrData(this.UserData)
+				} else{
+					this.$toast("头像设置失败","error")
+				}
+				this.isConfrm = false
+			},
+			noUse(){
+				this.avatarUrl = this.UserData.head_url
+				this.isConfrm = false
+			},
+			async chooseAvatar(){
+				let url = await GetImgTempUrls()
+				this.avatarUrl = url[0]
+				this.isConfrm = true
 			},
 			ToEditUser(){
 				uni.redirectTo({url:"/subpackages/editUserData/editUserData"})

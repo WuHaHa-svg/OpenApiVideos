@@ -32,7 +32,7 @@
 	import Confirm from "@/components/Confirm.vue"
 	import TabBar from "@/components/TabBar.vue"
 	import { UploadZoneApi } from "@/utils/server/Api"
-	import {GetImgTempUrls,GetServerImgUrl} from "@/utils/server/UploadImg1.js"
+	import {GetImgTempUrls,GetServerImgUrl} from "@/utils/server/UploadImg.js"
 	export default {
 		components: {
 			IndexNav,

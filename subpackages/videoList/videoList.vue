@@ -150,7 +150,14 @@
 				position: absolute;
 				top: 200rpx;
 				right: 5vw;
+				width: 44px;
+				height: 44px;
+				line-height: 44px;
+				text-align: center;
 				text-shadow: -1px -1px aqua,1px 1px red;
+				span{
+					font-size: 26px;
+				}
 			}
 			// transform: translate(-50%,-50%);
 		}

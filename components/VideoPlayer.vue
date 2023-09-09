@@ -1,5 +1,4 @@
 <template>
-
 	<view class="video-player" @tap="changeState">
 		<PauseIcon :state="state"></PauseIcon>
 		<video id="myVideo" :muted="false" :loop="true" :autoplay="auto"

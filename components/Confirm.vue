@@ -1,5 +1,5 @@
 <template>
-	<view class="confirm-box">
+	<view class="confirm-box" :animation="animationData">
 		<view class="confirm-title">
 			{{title}}
 		</view>
@@ -12,38 +12,70 @@
 
 <script>
 	export default {
-		name:"Confirm",
-		props:['title'],
+		name: "Confirm",
+		props: ["title", "status"],
 		data() {
 			return {
+				animationData: {},
+				animation: ""
 			};
 		},
-		methods:{
-			no(){
+		created() {
+			var animation = uni.createAnimation({
+				duration: 100,
+				timingFunction: 'linear',
+			})
+			this.animation = animation
+		},
+		watch: {
+			status: {
+				immediate: false,
+				handler(nV, oV) {
+					if (nV) {
+						console.log("显示");
+						this.animation.opacity(1).step(),
+						this.animation.scale(1.2).step(),
+						this.animation.scale(0.8).step(),
+						this.animation.scale(1).step(),
+						this.animationData = this.animation.export()
+					} else {
+						console.log("隐藏");
+						this.animation.scale(0.8).step(),
+						this.animation.scale(1.2).step(),
+						this.animation.scale(0.1).step(),
+						this.animation.opacity(0).step(),
+						this.animationData = this.animation.export()
+					}
+				}
+			}
+		},
+		methods: {
+			no() {
 				this.$emit("Cancl")
 			},
-			yes(){
+			yes() {
 				this.$emit("Confm")
 			}
 		}
-		
 	}
 </script>
 
 <style lang="less" scoped>
-	.confirm-box{
+	.confirm-box {
+		z-index: 9999;
 		position: fixed;
-		top: 50vh;
-		left: 50vw;
+		top: calc(50vh - 95px);
+		left: calc(50vw - 138px);
 		width: 276px;
 		height: 190px;
-		transform: translate(-50%,-50%);
 		backdrop-filter: blur(30px);
 		border-radius: 20px;
-		border: 1px solid rgba(255,255,255,.2);
-		.confirm-title{
+		border: 1px solid rgba(255, 255, 255, .2);
+		opacity: 0;
+		
+		.confirm-title {
 			box-sizing: border-box;
-			border-bottom: 2px solid rgba(255,255,255,.2);
+			border-bottom: 2px solid rgba(255, 255, 255, .2);
 			width: 100%;
 			height: 130px;
 			line-height: 130px;
@@ -52,12 +84,14 @@
 			text-align: center;
 			color: #FFF;
 		}
-		.confirm-btns{
+
+		.confirm-btns {
 			display: flex;
 			justify-content: space-around;
 			height: 60px;
 			width: 100%;
-			.confirm-btn{
+
+			.confirm-btn {
 				height: 60px;
 				width: 138px;
 				line-height: 60px;
@@ -68,11 +102,13 @@
 				font-weight: bolder;
 				font-size: 20px;
 			}
-			.confirm-btn:first-child{
-				border-right:1px solid rgba(255,255,255,.2);
+
+			.confirm-btn:first-child {
+				border-right: 1px solid rgba(255, 255, 255, .2);
 			}
-			.confirm-btn:last-child{
-				border-left:1px solid rgba(255,255,255,.2);
+
+			.confirm-btn:last-child {
+				border-left: 1px solid rgba(255, 255, 255, .2);
 			}
 		}
 	}

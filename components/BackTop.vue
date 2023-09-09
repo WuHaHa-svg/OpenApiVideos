@@ -13,14 +13,10 @@
 			};
 		},
 		created() {
-			// 初始化一个动画
 			var animation = uni.createAnimation({
-				// 动画时间
 				duration: 500,
-				// 动画速度
 				timingFunction: 'ease',
 			})
-			// 存在return字段中
 			this.animation = animation
 		},
 		methods: {
