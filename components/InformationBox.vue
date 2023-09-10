@@ -1,7 +1,11 @@
 <template>
+	<!-- 播放视频用到的视频信息展示组件 -->
 	<view class="infor">
+		<!-- 头像 -->
 		<image class="avatar" :src="videoItem.picuser" mode=""></image>
+		<!-- 作者昵称 -->
 		<text class="info-text">{{videoItem.alias}}</text>
+		<!-- 视频标题 -->
 		<text class="info-text-1">{{videoItem.title}}</text>
 	</view>
 </template>

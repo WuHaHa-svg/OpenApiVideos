@@ -1,9 +1,12 @@
 <template>
+	<!-- 账户资料页面 -->
 	<view class="content" :style="{paddingTop:top}">
+		<!-- 标题栏 -->
 		<view class="title-box">
 			<view class="title">编辑资料</view>
 			<view class="time">上次修改：{{UserData.updatedAt}}</view>
 		</view>
+		<!-- 设置栏布局 -->
 		<view class="setting-item" @tap="chooseAvatar">
 			<view class="input-title">头像</view>
 			<image :src="UserData.head_url" class="avatar" mode="scaleToFill"></image>
@@ -26,11 +29,13 @@
 			<view class="store-mode">{{storeMode}}</view>
 			<switch :checked="isUpload" @change="changeUpload" color="aqua"/>
 		</view>
+		<!-- 底部按钮 -->
 		<view class="opt-btns">
 			<button @click="logout" class="opt-btn logout">注销</button>
 			<button @click="back" class="opt-btn back">返回</button>
 			<button @click="submit" class="opt-btn submit">提交</button>
 		</view>
+		<!-- 用于修改生日的组件 -->
 		<view v-if="visible"class="picker-container">
 			<picker-view indicator-class="active-box" mask-class="picker-mark"
 				class="picker-view" @change="bindChange">
@@ -98,6 +103,7 @@
 			},
 		},
 		watch:{
+			// 监听存储模式响应页面数据
 			isUpload:{
 				immediate:true,
 				handler(newV,oldV){
@@ -107,11 +113,13 @@
 			}
 		},
 		methods: {
+			// 改变存储模式
 			changeUpload(e){
 				if (e.detail.value) this.$toast("所有图片将存储到服务器，次日清除","none")
 				else this.$toast("所有图片将存储在本机缓存，不再上传服务器","none")
 				this.$store.commit('BaseConfig/changeUpload', e.detail.value)
 			},
+			// 选择头像
 			async chooseAvatar(){
 				let imgUrl = await GetImgTempUrls()
 				console.log("缓存",imgUrl[0])
@@ -129,12 +137,14 @@
 					this.UserData.head_url = imgUrl[0]
 				}
 			},
+			// 随机签名
 			async getBlur(){
-				console.log("获取名言")
+				// console.log("获取名言")
 				let res = await GetBlurApi()
 				console.log(res)
 				this.UserData.blurb = res.data.result.name
 			},
+			// 提交按钮
 			async submit(){
 				this.UserData.birthday = this.birDay
 				// console.log("新数据")
@@ -152,23 +162,29 @@
 					},1500)
 				}
 			},
+			// 返回按钮
 			back(){
 				uni.reLaunch({url:"/pages/mine/mine"})
 			},
+			// 注销按钮
 			logout(){
 				uni.clearStorage()
 				uni.reLaunch({url:"/pages/mine/mine"})
 			},
+			// 修改生日显示日期picker
 			changeBirDay(){
 				this.visible = true
 			},
+			// 日期picker确认按钮
 			confirm() {
 				this.birDay = ArryToDate(this.value)
 				this.visible = false
 			},
+			// 日期picker取消按钮
 			cancel(){
 				this.visible = false
 			},
+			// 监听日期picker选择
 			bindChange(e) {
 				this.value = []
 				const val = e.detail.value

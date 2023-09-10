@@ -1,4 +1,6 @@
 <template>
+	<!-- 壁纸模块的顶部导航栏 -->
+	<!-- 由于微信APP不支持设置noreferer，因此原图采用防盗链，所以无法展示图片 -->
 	<view class="nav-box" :style="{paddingTop:top}">
 		<SystemHeight></SystemHeight>
 		<view class="nav">
@@ -38,6 +40,7 @@
 			}
 		},
 		methods: {
+			// 把当前标题对的类型tag传递给父组件,用于加载不同类型的壁纸
 			change(name){
 				this.tag = name
 				this.$emit('getTag',name)

@@ -1,4 +1,5 @@
 <template>
+	<!-- 系统导航栏填充组件 -->
 	<view class="nav-bgc" :style="{height:top}"></view>
 </template>
 

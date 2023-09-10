@@ -1,4 +1,5 @@
 <template>
+	<!-- 注册 -->
 	<view class="content">
 		<SystemHeight></SystemHeight>
 		<view class="login-container">
@@ -6,6 +7,7 @@
 				<text>Register</text>
 				<text>注册你的账号...</text>
 			</view>
+			<!-- 输入区域 -->
 			<view class="input-box">
 				<input @focus="inpt(0)" @blur="blurInpt(0)" class="input" v-model="formData.account" :placeholder="mailTip"
 					placeholder-style="font-size: 14px" />
@@ -22,6 +24,7 @@
 					@finish="register"></uv-code-input>
 				</view>
 			</view>
+			<!-- 按钮 -->
 			<view class="btns">
 				<button class="btn" @click="getVerify">验证码</button>
 				<button class="btn" @click="reset">重置</button>
@@ -56,6 +59,7 @@
 				uni.reLaunch({url:"/pages/mine/mine"})
 			},
 			async getVerify(){
+				// 获取验证码请求之前检测数据
 				let accFlag = checkStr(this.formData.account,"email")
 				let pwdFlag = checkStr(this.formData.password,"pwd")
 				let conPwd = checkStr(this.formData.passwordConfirm,"pwd")
@@ -72,6 +76,7 @@
 					this.$toast("验证码发送失败！","error")
 				}
 			},
+			// 注册
 			async register(){
 				console.log("触发注册")
 				const data = {

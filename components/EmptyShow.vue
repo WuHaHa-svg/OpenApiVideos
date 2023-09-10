@@ -1,4 +1,5 @@
 <template>
+	<!-- 空白内容组件 -->
 	<view class="empty">
 		<view class="iconfont icon-queshengye_zanwushuju icon"></view>
 		<view class="text">这里暂时没有内容哦！！！</view>

@@ -1,10 +1,15 @@
 <template>
+	<!-- “动态” -->
 	<view class="content">
+		<!-- 顶部导航栏 -->
 		<IndexNav left="全部动态" right="发个动态"></IndexNav>
+		<!-- 动态列表 -->
 		<view class="dimc-list">
 			<DynamicList dataType="all" :pageNum="page"></DynamicList>
 		</view>
+		<!-- 返回顶部 -->
 		<BackTop :TopBtn="TopBtn"></BackTop>
+		<!-- 底部导航栏 -->
 		<TabBar></TabBar>
 	</view>
 </template>
@@ -28,6 +33,7 @@
 				page:1
 			}
 		},
+		// 是否展示BackTop
 		onPageScroll(e) {
 			if (e.scrollTop >= 600) {
 				this.TopBtn = true
@@ -35,11 +41,9 @@
 				this.TopBtn = false
 			}
 		},
+		// 页面到底部,加载新一页数据
 		onReachBottom() {
 			this.page += 1
-		},
-		methods: {
-
 		}
 	}
 </script>

@@ -1,5 +1,7 @@
 <template>
+	<!-- 用于播放视频的组件 -->
 	<view class="video-player" @tap="changeState">
+		<!-- 暂停按钮组件 -->
 		<PauseIcon :state="state"></PauseIcon>
 		<video id="myVideo" :muted="false" :loop="true" :autoplay="auto"
 		:controls="false" :show-center-play-btn="false" 
@@ -20,7 +22,7 @@
 		},
 		props:['videoItem','auto'],
 		created() {
-			//仅wxapp
+			//仅wxapp，获取video组件上下文
 			this.videoContext = uni.createVideoContext('myVideo',this)
 		},
 		// created() {
@@ -30,28 +32,28 @@
 		// 	}
 		// },
 		methods:{
-			changeState(){
-				if (this.state) {
-					this.videoContext.pause()
-					this.state = false
-					return
-				}
-				
-				if(!this.state){
-					this.videoContext.play()
-					this.state = true
-					return 
-				}
-			},
+			// 视频播放用于父组件滑动视频时自动暂停划走视频,自动播放划入视频调用
 			play(){
 				// console.log("play",this.videoContext)
 				this.videoContext.play()
 				this.state = true
 			},
+			// 视频暂停用于父组件滑动视频时自动暂停划走视频,自动播放划入视频调用
 			pause(){
 				// console.log("pause",this.videoContext)
 				this.videoContext.pause()
 				this.state = false
+			},
+			// 点击视频 播放/暂停
+			changeState(){
+				if(this.state) {
+					this.pause()
+					return
+				}
+				if(!this.state){
+					this.play()
+					return 
+				}
 			}
 		}
 	}

@@ -1,4 +1,5 @@
 <template>
+	<!-- 播放视频用到的暂停按钮组件 -->
 	<view class="pause-icon" :animation="animationData">
 		<image class="img" src="@/static/pause.png" mode="scaleToFill"></image>
 	</view>
@@ -26,6 +27,7 @@
 			this.animation = animation
 		},
 		watch:{
+			// 监听是否展示按钮
 			state:{
 				immediate:true,
 				handler(n,o){

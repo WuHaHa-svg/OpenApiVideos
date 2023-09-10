@@ -1,8 +1,11 @@
 <template>
+	<!-- 确认框组件 -->
 	<view class="confirm-box" :animation="animationData">
+		<!-- 标题 -->
 		<view class="confirm-title">
 			{{title}}
 		</view>
+		<!-- 按钮 -->
 		<view class="confirm-btns">
 			<view class="confirm-btn" @tap="no">取消</view>
 			<view class="confirm-btn" @tap="yes">确定</view>
@@ -21,6 +24,7 @@
 			};
 		},
 		created() {
+			// 创建动画
 			var animation = uni.createAnimation({
 				duration: 100,
 				timingFunction: 'linear',
@@ -28,28 +32,36 @@
 			this.animation = animation
 		},
 		watch: {
+			// 监听是否需要展示改组件
 			status: {
 				immediate: false,
 				handler(nV, oV) {
 					if (nV) {
 						console.log("显示");
 						this.animation.opacity(1).step(),
-						this.animation.scale(1.2).step(),
-						this.animation.scale(0.8).step(),
-						this.animation.scale(1).step(),
+						this.animation.translateX(30).step(),
+						this.animation.translateX(-15).step(),
+						this.animation.translateX(0).step(),
+						// this.animation.scale(1.2).step(),
+						// this.animation.scale(0.8).step(),
+						// this.animation.scale(1).step(),
 						this.animationData = this.animation.export()
 					} else {
 						console.log("隐藏");
-						this.animation.scale(0.8).step(),
-						this.animation.scale(1.2).step(),
-						this.animation.scale(0.1).step(),
+						this.animation.translateX(-30).step(),
+						// this.animation.translateX(30).step(),
+						this.animation.translateX(2000).step(),
 						this.animation.opacity(0).step(),
+						// this.animation.scale(1.2).step(),
+						// this.animation.scale(0.1).step(),
+						// this.animation.opacity(0).step(),
 						this.animationData = this.animation.export()
 					}
 				}
 			}
 		},
 		methods: {
+			// 绑定两个事件,点击确认和取消时触发对应的事件(调用父组件对应的函数)
 			no() {
 				this.$emit("Cancl")
 			},
@@ -72,6 +84,7 @@
 		border-radius: 20px;
 		border: 1px solid rgba(255, 255, 255, .2);
 		opacity: 0;
+		transform: translateX(-2000px);
 		
 		.confirm-title {
 			box-sizing: border-box;

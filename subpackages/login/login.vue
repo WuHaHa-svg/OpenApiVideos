@@ -1,4 +1,5 @@
 <template>
+	<!-- 登录 -->
 	<view class="content">
 		<SystemHeight></SystemHeight>
 		<view class="login-container">
@@ -44,6 +45,7 @@
 			backToMine(){
 				uni.reLaunch({url:"/pages/mine/mine"})
 			},
+			// 登录
 			async login() {
 				let accFlag = checkStr(this.formData.account, "email")
 				let pwdFlag = checkStr(this.formData.password, "pwd")
@@ -58,10 +60,12 @@
 				}
 				let res = await LoginApi(data)
 				console.log(res)
+				// 登陆不成功
 				if (res.data.code !== 200) {
 					this.$toast("请检查账户密码！", "error")
 					return
 				}
+				// 设置token
 				try {
 					Setnk(res.data.result.token)
 				// 	this.$toast("登录成功！", "success")
@@ -70,8 +74,10 @@
 					return
 				}
 				// console.log(this.$store.state.UserData.token)
+				// 获取用户数据
 				let user = await GetUserApi()
 				console.log("用户数据：",user)
+				// 设置用户数据
 				try{
 					let userData = {
 						...user.data.result,
@@ -90,6 +96,7 @@
 				this.formData.account = ""
 				this.formData.password = ""
 			},
+			// 输入库聚焦提示
 			inpt(num) {
 				if (num === 0) {
 					this.mailTip = "请注意邮箱格式!"
@@ -100,6 +107,7 @@
 					return
 				}
 			},
+			// 输入库失焦提示
 			blurInpt(num) {
 				if (num === 0) {
 					this.mailTip = "请输入邮箱"

@@ -2,6 +2,7 @@
 	<view class="content">
 		<IndexNav left="推介" right="列表"></IndexNav>
 		<view class="list">
+			<!-- 视频列表（首页列表模式） -->
 			<view class="video-card" v-for="item,index in list" :key="index">
 				<image class="img" :src="item.picurl"
 					mode="aspectFit" :lazy-load="true"
@@ -14,7 +15,7 @@
 				</view>
 			</view>
 		</view>
-		<!-- <VideoPlayer></VideoPlayer> -->
+		<!-- 点击列表，播放相应视频 -->
 		<view class="play-box" v-if="videoItem" >
 			<view class="btn" @tap="closePlay()">
 				<span class="iconfont icon-cuowuguanbiquxiao-fangkuang"></span>
@@ -65,17 +66,17 @@
 				this.videoItem = item
 				console.log(this.videoItem)
 			},
+			// 加载视频列表
 			async getVideo() {
 				console.log("加载前：",this.currentData)
 				let res = await VideoApi(this.currentData)
 				// console.log("视频",typeof res.data.result.list)
 				this.list = [...this.list,...res.data.result.list]
+				// 页面+1
 				this.currentData.page += 1
 				console.log("加载结果：",this.list)
 				console.log("加载后：",this.currentData)
 			},
-		},
-		computed:{
 		}
 	}
 </script>

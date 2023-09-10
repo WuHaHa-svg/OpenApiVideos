@@ -1,4 +1,5 @@
 <template>
+	<!-- 底部导航栏 -->
 	<view class="tab">
 		<view 
 		 :class="activeTag==='index'?'active': (activeTag==='list'?'active':'nil')" 
@@ -29,11 +30,13 @@
 			}
 		},
 		methods:{
+			// 点击对应标题跳转对应页面
 			goTo(name,url){
 				console.log(url)
 				// uni.switchTab({url})
 				if (this.activeTag == name) return
 				uni.reLaunch({url})
+				// 修改激活tag
 				this.$store.commit('BaseConfig/changeTag',name)
 			}
 		}

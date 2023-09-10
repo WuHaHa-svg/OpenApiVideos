@@ -1,8 +1,13 @@
 <template>
+	<!-- 动态列表组件，用于展示全部动态和我的动态 -->
 	<view class="scroll" scroll-y="true">
+		<!-- 内容是否为空，不为空则循环遍历动态数据，展示动态卡片 -->
 		<view v-if="!isEmpty" class="dimc-card" v-for="(item,index) in dynamicList" :key="index">
+			<!-- 动态卡片的头部布局 -->
 			<view class="dynamic-head">
+				<!-- 头像 -->
 				<image class="avatar" :src="item.userInfo.head_url" mode="aspectFill"></image>
+				<!-- 用户数据 -->
 				<view class="user-info">
 					<view class="user-name">
 						{{item.userInfo.name?item.userInfo.name:'用户未设置昵称'}}
@@ -10,13 +15,17 @@
 					<view class="user-blurb">
 						{{item.userInfo.name?item.userInfo.blurb:'这个家伙很懒，没有留下签名'}}
 					</view>
+					<!-- 如果展示的是我的动态，就显示删除按钮 -->
 					<view v-if="dataType === 'mine'" class="iconfont icon-shanchu del" @tap="delTap(index)"></view>
 				</view>
 			</view>
+			<!-- 动态卡片的文本布局 -->
 			<view class="text-area">
 				{{item.text}}
 			</view>
+			<!-- 动态卡片的图片布局，如果没有图片，此布局不展示 -->
 			<view v-if="item.images.length>0" class="banner-area">
+				<!-- 如果又多张图片，就用swiper -->
 				<swiper v-if="item.images.length>1" class="swiper" :indicator-dots="false" :autoplay="true" :interval="3000" :duration="1000"
 					:circular="true">
 					<swiper-item class="swiper-item" v-for="(sitem,sindex) in item.images" :key="sindex">
@@ -25,12 +34,14 @@
 							mode="aspectFill"></image>
 					</swiper-item>
 				</swiper>
+				<!-- 如果只有一张一图片，就只展示图片 -->
 				<view class="no-swiper" v-if="item.images.length === 1">
 					<image class="img"
 						:src="item.images[0].url" :lazy-load="true"
 						mode="aspectFill"></image>
 				</view>
 			</view>
+			<!-- 动态卡片的底部布局 -->
 			<view class="dynamic-foot">
 				<view class="send-title">
 					发送时间
@@ -40,8 +51,10 @@
 				</view>
 			</view>
 		</view>
+		<!-- 空内容组件 -->
 		<EmptyShow v-if="isEmpty"></EmptyShow>
-		<Confirm title="确认删除此动态吗？" @Confm="delDynamic" @Cancl="noDel" v-if="isConfrm"></Confirm>
+		<!-- 删除动态的确认框确认框 -->
+		<Confirm title="确认删除此动态吗？" @Confm="delDynamic" @Cancl="noDel" :status="isConfrm"></Confirm>
 	</view>
 
 </template>
@@ -67,6 +80,7 @@
 				delIndex:-1
 			};
 		},
+		// 用watch的immediate:true代替掉
 		// created() {
 		// 	console.log(this.dataType);
 		// 	if(this.dataType === "all") {
@@ -79,14 +93,16 @@
 		// 	}
 		// },
 		methods:{
+			// 点击删除动态按钮
 			delTap(index){
 				this.delIndex = index
-				this.isConfrm = true
+				this.isConfrm = true		//展示确认框
 			},
+			// noDel和delDynamic是confirm组件绑定的两个事件,分别为取消和确认时调用
 			noDel(){
 				console.log("取消");
 				this.delINdex = -1
-				this.isConfrm = false
+				this.isConfrm = false		//取消展示确认框
 			},
 			async delDynamic(){
 				let data = {id:this.dynamicList[this.delIndex].id}
@@ -96,8 +112,9 @@
 					this.dynamicList.splice(this.delIndex,1)
 					if(this.dynamicList.length === 0) this.isEmpty = true
 				}
-				this.isConfrm = false
+				this.isConfrm = false		//取消展示确认框
 			},
+			// 获取全部动态
 			async GetAllDynamic(){
 				console.log("全部");
 				let data = {page: this.pageNum,size: 12}
@@ -109,6 +126,7 @@
 				}
 				this.dynamicList = [...this.dynamicList,...res.data.result.list]
 			},
+			// 获取我的动态
 			async GetMyDynamic(){
 				console.log("我的");
 				let data = {page: this.pageNum,size: 12}
@@ -122,6 +140,7 @@
 			}
 		},
 		watch:{
+			// 父组件滑倒底部时候,pageNum+1,触发新一页的数据加载
 			pageNum:{
 				immediate:true,
 				handler(newV,oldV){

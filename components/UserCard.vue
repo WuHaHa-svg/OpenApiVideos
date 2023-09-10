@@ -1,4 +1,5 @@
 <template>
+	<!-- “我的”页面未登陆时暂时的组件，用于跳转登陆注册页面 -->
 	<view class="user-box">
 		<view class="title">
 			<!-- <image class="login-pic" src="../static/notLogin.png" mode="aspectFit"></image> -->
@@ -19,6 +20,7 @@
 			return {};
 		},
 		methods: {
+			// 跳转页面
 			goTo(target) {
 				if (target === 'login') {
 					uni.navigateTo({

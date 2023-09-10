@@ -1,14 +1,17 @@
 <template>
+	<!-- 顶部导航栏 -->
 	<view class="index-nav" :style="{paddingTop:top}">
+		<!-- 系统状态栏区域填充组件 -->
 		<SystemHeight></SystemHeight>
-		<!-- <view class="text" :class="activeTag === 'index'? 'active':'nil'" @tap="goTo('index','\/pages\/index\/index')"> -->
+		<!-- 左边标题 -->
 		<view class="text" :class="activeTag === leftTag? 'active':'nil'" @tap="goTo(left)">
 			{{left}}
 		</view>
+		<!-- 分割线 -->
 		<view class="middle-line">
 			|
 		</view>
-		<!-- <view class="text" :class="activeTag === 'list'? 'active':'nil'" @tap="goTo('list','\/subpackages\/videoList\/videoList')"> -->
+		<!-- 右边标题 -->
 		<view class="text" :class="activeTag === rightTag? 'active':'nil'" @tap="goTo(right)">
 			{{right}}
 		</view>
@@ -29,23 +32,27 @@
 			top(){
 				return this.$store.state.BaseConfig.top + 'px'
 			},
+			// 标题tag名
 			leftTag(){
 				let tag = this.$store.state.BaseConfig.tags.filter(item =>{
 					if (item.name === this.left) return true
 				})[0].tag
 				return tag
 			},
+			// 标题tag名
 			rightTag(){
 				let tag = this.$store.state.BaseConfig.tags.filter(item =>{
 					if (item.name === this.right) return true
 				})[0].tag
 				return tag
 			},
+			// 激活的标题tag
 			activeTag(){
 				return this.$store.state.BaseConfig.activeTag
 			}
 		},
 		methods:{
+			// 点击标题跳转相应页面
 			goTo(target){
 				let path = this.$store.state.BaseConfig.tags.filter(item =>{
 					if (item.name === target) return true
@@ -54,6 +61,7 @@
 				if (this.activeTag == path.tag) return
 				if((path.tag==='index')||(path.tag==='allDimc')) uni.reLaunch({url:path.url})
 				else uni.redirectTo({url:path.url})
+				// 切换激活标题tag
 				this.$store.commit('BaseConfig/changeTag',path.tag)
 			}
 		}

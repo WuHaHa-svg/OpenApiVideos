@@ -1,10 +1,15 @@
 <template>
+	<!-- “我的” -->
 	<view class="content">
+		<!-- 导航栏填充组件 -->
 		<SystemHeight></SystemHeight>
+		<!-- 登录状态展示内容 -->
 		<view class="isLogin" v-if="isLogin">
+			<!-- 顶部背景图 -->
 			<view class="user-bgc" :style="{paddingTop:top}">
 				<text class="blur-text">{{UserData.blurb?UserData.blurb:"这个家伙很懒，什么简介也没有..."}}</text>
 			</view>
+			<!-- 用户数据 -->
 			<view class="user-info">
 				<image class="user-img" :src="avatarUrl" mode="aspectFill" @tap="chooseAvatar"></image>
 				<view class="edit-user" @tap="ToEditUser">账户资料</view>
@@ -14,16 +19,21 @@
 				</view>
 				<view class="my-dynamic-title">我的动态</view>
 			</view>
+			<!-- 我的动态 -->
 			<view class="dynamic-list">
 				<DynamicList  dataType="mine" :pageNum="page"></DynamicList>
 			</view>
 		</view>
+		<!-- 未登录展示内容 -->
 		<view class="notLogin" v-if="!isLogin">
+			<!-- 跳转 登录/注册 的组件 -->
 			<UserCard></UserCard>
 		</view>
+		<!-- 滑动我的动态触发显示返回顶部 -->
 		<BackTop :TopBtn="TopBtn"></BackTop>
 		<TabBar></TabBar>
-		<Confirm :status="isConfrm" title="是否使用此头像？" @Confm="useAvatar" @Cancl="noUse" ></Confirm>
+		<!-- 应用头像的确认框 -->
+		<Confirm :status="isConfrm" title="是否使用此头像？" @Confm="useAvatar" @Cancl="noUse"></Confirm>
 	</view>
 </template>
 
@@ -58,9 +68,11 @@
 			}
 		},
 		created() {
+			// 获取用户数据
 			this.UserData = GetUsrData()
 			this.avatarUrl = this.UserData.head_url
 		},
+		// 监听页面滚动展示返回顶部组件
 		onPageScroll(e) {
 			if (e.scrollTop >= 600) {
 				this.TopBtn = true
@@ -68,6 +80,7 @@
 				this.TopBtn = false
 			}
 		},
+		// 滚动到底部加载新数据
 		onReachBottom() {
 			this.page += 1
 		},
@@ -81,6 +94,7 @@
 		},
 		
 		methods: {
+			// useAvatar和noUse为confirm组件绑定的事件,分别对应确认和取消
 			async useAvatar(){
 				if (this.$store.state.BaseConfig.isUpload){
 					// 图片上传服务器
@@ -112,6 +126,7 @@
 				this.avatarUrl = url[0]
 				this.isConfrm = true
 			},
+			// 点击账户资料
 			ToEditUser(){
 				uni.redirectTo({url:"/subpackages/editUserData/editUserData"})
 			}

@@ -1,11 +1,14 @@
 <template>
 	<view class="content">
+		<!-- 顶部导航栏 -->
 		<IndexNav left="全部动态" right="发个动态"></IndexNav>
 		<view class="dimc-list">
+			<!-- 抒写文本 -->
 			<view class="dynamic-title">
 				抒写心情：
 			</view>
 			<textarea class="text-area" v-model="text" :maxlength="-1"></textarea>
+			<!-- 添加图片 -->
 			<view class="dynamic-title">
 				添加图片：
 			</view>
@@ -22,7 +25,7 @@
 		<view class="send-btn">
 			<button @click="sendDynamic">发送</button>
 		</view>
-		<Confirm title="确认删除此图片吗？" @Confm="delPic" @Cancl="noDel" v-if="isConfrm"></Confirm>
+		<Confirm title="确认删除此图片吗？" @Confm="delPic" @Cancl="noDel" :status="isConfrm"></Confirm>
 		<TabBar></TabBar>
 	</view>
 </template>
@@ -48,6 +51,7 @@
 			}
 		},
 		computed:{
+			// 存储模式
 			isUpload() {
 				return this.$store.state.BaseConfig.isUpload
 			}
@@ -61,6 +65,7 @@
 				}
 				// 如果开启上传云端模式
 				if(this.isUpload){
+					// 把图片上传服务器,获取图片的服务器链接
 					let serverUrls = []
 					for(let i =0; i<this.addList.length; i++){
 						let url = await GetServerImgUrl(this.addList[i])
@@ -69,6 +74,7 @@
 					console.log("服务",serverUrls);
 					var data = {text:this.text,images:serverUrls}
 				}else{
+					// 本地模式直接把图片的缓存链接上传服务器
 					var data = {text:this.text,images:this.addList}
 				}
 				let res = await UploadZoneApi(data)
@@ -78,6 +84,7 @@
 					this.$toast("发送成功！","success")
 				}
 			},
+			// 添加图片
 			async addPic(){
 				console.log(this.addList.length);
 				console.log(this.addList.length > 5);
@@ -94,15 +101,18 @@
 			// 	let list = await allDone(9)
 			// 	this.addList = [...this.addList,...list]
 			// },
+			// 图片长按显示确认框
 			longPres(index){
 				this.delINdex = index
 				this.isConfrm = true
 			},
+			// 确认框点击确认
 			delPic(){
 				console.log("删除");
 				this.addList.splice(this.delINdex,1)
 				this.isConfrm = false
 			},
+			// 确认框点击取消
 			noDel(){
 				console.log("取消");
 				this.delINdex = -1

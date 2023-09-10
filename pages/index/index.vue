@@ -1,7 +1,10 @@
 <template>
 	<view class="content">
+		<!-- 顶部导航栏 -->
 		<IndexNav left="推介" right="列表"></IndexNav>
+		<!-- swiper视频列表 -->
 		<VideoList ref="VideoList"></VideoList>
+		<!-- 底部导航栏 -->
 		<TabBar></TabBar>
 	</view>
 </template>
@@ -13,12 +16,10 @@
 	export default {
 		data() {
 			return {
-				title: 'Hello'
 			}
 		},
 		components:{TabBar,IndexNav,VideoList},
 		methods: {
-
 		}
 	}
 </script>

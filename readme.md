@@ -1,3 +1,0 @@
-OpenApiVideos
-本项目前端使用vue2的uniapp，后端是开源项目OpenApi提供的接口
-首页效果图：

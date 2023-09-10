@@ -1,7 +1,10 @@
 <template>
+	<!-- “壁纸” -->
 	<view class="content">
+		<!-- 顶部导航栏 -->
 		<WallPaperNav @getTag="getTag"></WallPaperNav>
 		<view class="container">
+			<!-- 展示壁纸布局，phone类型对应竖屏壁纸，用不同的类展示不同的效果，y-card：竖屏壁纸布局，x-card：横屏壁纸布局-->
 			<view v-for="(item,index) in imgList" :key="index" :class="currentTagName==='phone'?'y-card':'x-card'">
 				<meta name="referrer" content="no-referrer" />
 				<image class="img" :src="item.url" :lazy-load="true" mode="aspectFill" @tap="showImg(item.url)"></image>
@@ -38,8 +41,10 @@
 			}
 		},
 		onShow() {
+			// 展示页面时加载数据
 			this.getImgList('show')
 		},
+		// 监听页面滚动,展示BackTop组件
 		onPageScroll(e) {
 			if (e.scrollTop >= 600) {
 				this.TopBtn = true
@@ -47,6 +52,7 @@
 				this.TopBtn = false
 			}
 		},
+		// 滚动到底部,加载新一页数据
 		onReachBottom() {
 			this.page += 1
 			this.getImgList('bottom')
@@ -57,6 +63,7 @@
 			}
 		},
 		methods: {
+			// 切换类别时,需要先把页面滚动到顶部
 			toTop() {
 				uni.pageScrollTo({
 					scrollTop: 0, // 滚动到页面的目标位置  这个是滚动到顶部, 0 
@@ -74,7 +81,9 @@
 					urls
 				})
 			},
+			// 加载图片url数据
 			async getImgList(reqType) {
+				// 不同的类别
 				let type = this.currentTagName === '--' ? '' : this.currentTagName
 				let data = {
 					type,
@@ -84,14 +93,17 @@
 				console.log("请求数据：", data)
 				let res = await WallPaperApi(data)
 				// return res.data.result.list
+				// 首次加载,直接替换this.imgList
 				if (reqType === 'show') {
 					this.imgList = res.data.result.list
 					return
 				}
+				// 滑动到底部,this.imgList后面追加
 				if (reqType === 'bottom') {
 					this.imgList = [...this.imgList, ...res.data.result.list]
 					return
 				}
+				// 切换类别,先滚动页面,再替换this.imgList
 				if (reqType === 'change') {
 					this.imgList = []
 					this.imgList = res.data.result.list
@@ -99,6 +111,7 @@
 
 				}
 			},
+			// 让顶部导航子组件知道目前的tag名
 			getTag(tagName) {
 				this.currentTagName = tagName
 			}
