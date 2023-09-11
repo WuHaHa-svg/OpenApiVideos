@@ -6,7 +6,7 @@
 		<view class="container">
 			<!-- 展示壁纸布局，phone类型对应竖屏壁纸，用不同的类展示不同的效果，y-card：竖屏壁纸布局，x-card：横屏壁纸布局-->
 			<view v-for="(item,index) in imgList" :key="index" :class="currentTagName==='phone'?'y-card':'x-card'">
-				<meta name="referrer" content="no-referrer" />
+				<!-- <meta name="referrer" content="no-referrer" /> -->
 				<image class="img" :src="item.url" :lazy-load="true" mode="aspectFill" @tap="showImg(item.url)"></image>
 			</view>
 		</view>
