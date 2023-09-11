@@ -1,4 +1,6 @@
 import store from "@/store/index.js"
+// 设置本地存储数据
+
 
 export const Setnk = (token) => {
 	// store.commit('UserData/setToken', token)

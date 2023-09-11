@@ -1,6 +1,6 @@
 <template>
 	<!-- 用于播放视频的组件 -->
-	<view class="video-player" @tap="changeState">
+	<view class="video-player" @tap.stop="changeState">
 		<!-- 暂停按钮组件 -->
 		<PauseIcon :state="state"></PauseIcon>
 		<video id="myVideo" :muted="false" :loop="true" :autoplay="auto"

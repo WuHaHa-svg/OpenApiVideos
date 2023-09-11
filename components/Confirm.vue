@@ -1,6 +1,6 @@
 <template>
 	<!-- 确认框组件 -->
-	<view class="confirm-box" :animation="animationData">
+	<view class="confirm-box" :animation="animationData" @touchmove.stop.prevent="() => {}">
 		<!-- 标题 -->
 		<view class="confirm-title">
 			{{title}}
@@ -38,23 +38,16 @@
 				handler(nV, oV) {
 					if (nV) {
 						console.log("显示");
-						this.animation.opacity(1).step(),
-						this.animation.translateX(30).step(),
-						this.animation.translateX(-15).step(),
-						this.animation.translateX(0).step(),
-						// this.animation.scale(1.2).step(),
-						// this.animation.scale(0.8).step(),
-						// this.animation.scale(1).step(),
+						this.animation.scale(1.2).rotate(5).step(),
+						this.animation.scale(0.8).rotate(-5).step(),
+						this.animation.scale(1).rotate(0).step(),
 						this.animationData = this.animation.export()
 					} else {
 						console.log("隐藏");
-						this.animation.translateX(-30).step(),
-						// this.animation.translateX(30).step(),
-						this.animation.translateX(2000).step(),
-						this.animation.opacity(0).step(),
-						// this.animation.scale(1.2).step(),
-						// this.animation.scale(0.1).step(),
-						// this.animation.opacity(0).step(),
+
+						this.animation.scale(0.8).rotate(-5).step(),
+						this.animation.scale(1.2).rotate(5).step(),
+						this.animation.scale(0).rotate(0).step(),
 						this.animationData = this.animation.export()
 					}
 				}
@@ -83,9 +76,9 @@
 		backdrop-filter: blur(30px);
 		border-radius: 20px;
 		border: 1px solid rgba(255, 255, 255, .2);
-		opacity: 0;
-		transform: translateX(-2000px);
-		
+		// opacity: 0;
+		// transform: translateX(-2000px);
+		transform: scale(0);	
 		.confirm-title {
 			box-sizing: border-box;
 			border-bottom: 2px solid rgba(255, 255, 255, .2);

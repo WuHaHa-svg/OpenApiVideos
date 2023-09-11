@@ -32,8 +32,8 @@
 		bottom: 100px;
 		width: 60vw;
 		height: 180px;
-		// background-color: rgb(255, 255, 255);
-		// backdrop-filter: blur(80px);
+		pointer-events: none;
+		
 		color: #FFF;
 		.avatar{
 			width: 50px;

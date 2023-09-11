@@ -38,12 +38,15 @@
 				current:0,
 				pageStartY:0,
 				pageY:0,
-				queueLenth:20,	//环形队列长度
+				queueLenth:10,	//环形队列长度
 			};
 		},
 		created() {
 			// 提前加载视频数据
 			this.getVideo(this.queueLenth)
+		},
+		beforeDestroy() {
+			console.log("...");
 		},
 		methods:{
 			async getVideo(size,...params){
@@ -60,7 +63,7 @@
 					let data = {"page": Math.floor(Math.random()*1800),size}
 					let res = await VideoApi(data)
 					let index = params[0]
-					this.videoList[index] = res.data.result.list[0]
+					if(res.data.code === 200) this.videoList[index] = res.data.result.list[0]
 				}
 			},
 			change(e){
@@ -72,16 +75,17 @@
 				immediate:false,
 				handler(newV,oldV){
 					console.log(`${oldV}=>${newV}`)
-					// 新视频播放
-					this.$refs.player[newV].play()
-					// 旧视频暂停
-					this.$refs.player[oldV].pause()
+					
 					// 采用了环形队列的思想,出队操作就是加载新视频替换掉原数据,维持一个时时刻刻状态都是满队的环形队列(保证用户可以一直滑动视频)
-					// 队列长度为20,就保留10个已经看过的视频数据,满足用户向上滑动可以看到自己上一个视频,最多十个
+					// 队列长度为queueLenth,就保留queueLenth / 2个已经看过的视频数据,满足用户向上滑动可以看到自己上一个视频,最多queueLenth / 2个
 					// 运算结果：第0个视频,加载第10个视频;第1个视频,加载第11个视频;第2个视频,加载第12个视频...
 										//第10个视频,加载第0个视频;第11个视频,加载第1个视频;第12个视频,加载第2个视频...
 					let loadIndex = (this.queueLenth / 2 + newV) % this.queueLenth
 					this.getVideo(1,loadIndex)
+					// 新视频播放
+					this.$refs.player[newV].play()
+					// 旧视频暂停
+					this.$refs.player[oldV].pause()
 					// console.log(`case${newV},加载${loadIndex}`);
 					// switch和if不够灵活,用取模运算来代替计算要加载的新数据
 					// switch (newV){

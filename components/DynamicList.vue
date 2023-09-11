@@ -75,6 +75,7 @@
 		data() {
 			return {
 				dynamicList: [],
+				list:[],
 				isEmpty:false,
 				isConfrm:false,
 				delIndex:-1
@@ -124,6 +125,8 @@
 					this.isEmpty = true
 					return
 				}
+				// let list = res.data.result.list.reverse()
+				// this.dynamicList = [...list,...this.dynamicList]
 				this.dynamicList = [...this.dynamicList,...res.data.result.list]
 			},
 			// 获取我的动态

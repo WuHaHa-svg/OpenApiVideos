@@ -1,5 +1,9 @@
-import requestApi from './http.js'
+import requestApi from './Http.js'
+// 此模块通过引入封装的requestApi,实现对Api的统一管理
 
+
+
+// 处理请求参数的方法
 function makeOptions(url,method,...params){
 	let options = {}
 	options.url = url

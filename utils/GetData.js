@@ -1,4 +1,6 @@
 import store from "@/store/index.js"
+// 从本地存储获取数据
+
 
 export const GetToken = () => {
 	return uni.getStorageSync('token');

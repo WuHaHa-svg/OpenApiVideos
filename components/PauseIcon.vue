@@ -61,6 +61,8 @@
 		transform: translate(-50%, -50%);
 		z-index: 9999;
 		opacity: 0;
+		pointer-events: none;
+		
 		.img {
 			width: 150px;
 			height: 150px
