@@ -21,7 +21,7 @@
 			</view>
 			<!-- 我的动态 -->
 			<view class="dynamic-list">
-				<DynamicList  dataType="mine" :pageNum="page"></DynamicList>
+				<DynamicList ref="dynamic" dataType="mine" :pageNum="page"></DynamicList>
 			</view>
 		</view>
 		<!-- 未登录展示内容 -->
@@ -46,8 +46,8 @@
 	import Confirm from "@/components/Confirm.vue"
 	import {GetUsrData} from "@/utils/GetData.js"
 	import {GetImgTempUrls,GetServerImgUrl} from "@/utils/server/UploadImg.js"
-	import { UpdateUserApi } from "../../utils/server/Api"
-	import { SetUsrData } from "../../utils/SetData"
+	import { UpdateUserApi } from "@/utils/server/Api"
+	import { SetUsrData } from "@/utils/SetData"
 	
 	export default {
 		components: {
@@ -116,6 +116,7 @@
 					this.$toast("头像设置失败","error")
 				}
 				this.isConfrm = false
+				uni.redirectTo({url:"/pages/mine/mine"})
 			},
 			noUse(){
 				this.avatarUrl = this.UserData.head_url

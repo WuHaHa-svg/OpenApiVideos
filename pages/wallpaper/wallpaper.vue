@@ -153,10 +153,12 @@
 				border-radius: 8px;
 				border: 1px solid #AAA;
 				margin-bottom: 25px;
-
+				box-shadow: 3px 3px 10px rgba(255, 255, 255, .3),
+									-3px -3px 10px rgba(255, 255, 255, .3);
 				.img {
 					height: 100%;
 					width: 100%;
+					border-radius: 8px;
 				}
 			}
 
@@ -172,10 +174,13 @@
 				border-radius: 8px;
 				border: 1px solid #AAA;
 				margin-bottom: 25px;
-
+				box-shadow: 3px 3px 10px rgba(255, 255, 255, .3),
+									-3px -3px 10px rgba(255, 255, 255, .3);
 				.img {
 					height: 100%;
 					width: 100%;
+					border-radius: 8px;
+					
 				}
 			}
 		}
