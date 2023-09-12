@@ -88,7 +88,7 @@
 				let data = {
 					type,
 					page: this.page,
-					size: 18
+					size: 8
 				}
 				console.log("请求数据：", data)
 				let res = await WallPaperApi(data)
@@ -142,15 +142,17 @@
 			padding-bottom: 100px;
 
 			.x-card {
-				width: 320rpx;
-				height: 175rpx;
+				width: 90vw;
+				height: 52vw;
+				max-width: 358px;
+				max-height: 200px;
 				box-sizing: border-box;
 				font-size: 30px;
 				text-align: center;
 				line-height: 175rpx;
 				border-radius: 8px;
 				border: 1px solid #AAA;
-				margin-bottom: 10px;
+				margin-bottom: 25px;
 
 				.img {
 					height: 100%;
@@ -159,15 +161,17 @@
 			}
 
 			.y-card {
-				height: 320rpx;
-				width: 200rpx;
+				width: 46vw;
+				height: 82vw;
+				max-width: 258px;
+				max-height: 460px;
 				box-sizing: border-box;
 				font-size: 30px;
 				text-align: center;
 				line-height: 320rpx;
 				border-radius: 8px;
 				border: 1px solid #AAA;
-				margin-bottom: 10px;
+				margin-bottom: 25px;
 
 				.img {
 					height: 100%;

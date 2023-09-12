@@ -26,8 +26,6 @@
 
    感谢阿里矢量图标库。
 
-------
-
 ## 项目树
 
 OpenApiVideos  
@@ -150,7 +148,7 @@ OpenApiVideos
   
 - ### 壁纸
 
-- 可以浏览不同分类的高清壁纸。（以后将提供一下保存到本地相册的功能，目前仅可预览）
+- 可以浏览不同分类的高清壁纸。（此模块完善中...）
 
 - ![image-20230911174258395](https://raw.githubusercontent.com/WuHaHa-svg/OpenApiVideos/MarkDownImgs/img/image-20230911174258395.png)
 
@@ -185,3 +183,28 @@ OpenApiVideos
     
     - ![image-20230911174558579](https://raw.githubusercontent.com/WuHaHa-svg/OpenApiVideos/MarkDownImgs/img/image-20230911174558579.png)
 
+------
+
+## 项目预览
+
+- ### 扫描下方体验版小程序二维码
+
+  目前小程序是体验版，因为审核大大太严格，审核根本过不了，我会接到体验申请资格后及时同意的
+
+  ![image-20230912130133795](https://raw.githubusercontent.com/WuHaHa-svg/OpenApiVideos/MarkDownImgs/img/image-20230912130133795.png)
+
+- ### 当然，你也可以下载本项目（可以从git导入，也可以下载到本地再导入）
+
+![image-20230912125325828](https://raw.githubusercontent.com/WuHaHa-svg/OpenApiVideos/MarkDownImgs/img/image-20230912125325828.png)
+
+![image-20230912125520381](https://raw.githubusercontent.com/WuHaHa-svg/OpenApiVideos/MarkDownImgs/img/image-20230912125520381.png)
+
+接下来运行到微信开发者工具即可，有不明白的可以参考[uni-app官网 (dcloud.net.cn)](https://uniapp.dcloud.net.cn/tutorial/run-and-debug.html)，在此我便不再赘述。
+
+接下来就是去微信公众平台为小程序配置安全域名和IP白名单，如果不配置的话，请求数据在开发者工具里面是正常的，一旦发布为体验版或者线上版，请求就会被微信拦截掉，配置安全域名和IP白名单后即可正常，主要配置的安全域名和IP白名单可以自行查看请求报文里面的请求URL和远程IP，查看方式如下：
+
+![image-20230912130734849](https://raw.githubusercontent.com/WuHaHa-svg/OpenApiVideos/MarkDownImgs/img/image-20230912130734849.png)
+
+- ### 如果有任何疑惑，欢迎添加微信：WuHaHa-Unavailable咨询。备注：OpenApiVideos。
+
+- ### 或者发送邮箱到：1813995050@qq.com
