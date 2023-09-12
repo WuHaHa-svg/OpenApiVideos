@@ -119,40 +119,38 @@ OpenApiVideos
 
   - 随机看视频，可以上下滑动切换视频，点击屏幕播放或暂停视频
 
-  - ![image-20230911172024204](https://raw.githubusercontent.com/WuHaHa-svg/OpenApiVideos/MarkDownImgs/img/image-20230911172024204.png)
+  - ![image-20230912140854922](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230912140854922.png)
   
   - #### 列表
   
   - 可滑动列表并点击视频播放，列表滑动到底部自动加载下页数据
   
-  - ![image-20230911172142058](https://raw.githubusercontent.com/WuHaHa-svg/OpenApiVideos/MarkDownImgs/img/image-20230911172142058.png)
+  - ![image-20230912141149283](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230912141149283.png)
   
-  - ![image-20230911172206571](https://raw.githubusercontent.com/WuHaHa-svg/OpenApiVideos/MarkDownImgs/img/image-20230911172206571.png)
+  - ![image-20230912141209096](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230912141209096.png)
   
 - ### 动态
   - #### 全部动态
 
   - 可以浏览所有用户发送的图文动态，滑动到底加载下一页数据
 
-  - ![image-20230911172243271](https://raw.githubusercontent.com/WuHaHa-svg/OpenApiVideos/MarkDownImgs/img/image-20230911172243271.png)
+  - ![image-20230912141223848](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230912141223848.png)
   
   - #### 发个动态
   
   - 可以发送图文动态，发送之后可以在“全部动态”和“我的”页面里面查看，图片最多支持5张（API限制），发送之前选择的图片可以长按删除
   
-  - ![image-20230911172313927](https://raw.githubusercontent.com/WuHaHa-svg/OpenApiVideos/MarkDownImgs/img/image-20230911172313927.png)
+  - ![image-20230912141307847](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230912141307847.png)
   
-  - ![image-20230911172338261](https://raw.githubusercontent.com/WuHaHa-svg/OpenApiVideos/MarkDownImgs/img/image-20230911172338261.png)
-  
-  - 
+  - ![image-20230912141326278](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230912141326278.png)
   
 - ### 壁纸
 
 - 可以浏览不同分类的高清壁纸。（此模块完善中...）
 
-- ![image-20230911174258395](https://raw.githubusercontent.com/WuHaHa-svg/OpenApiVideos/MarkDownImgs/img/image-20230911174258395.png)
+- ![image-20230912141410180](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230912141410180.png)
 
-- ![image-20230911174317757](https://raw.githubusercontent.com/WuHaHa-svg/OpenApiVideos/MarkDownImgs/img/image-20230911174317757.png)
+- ![image-20230912141426738](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230912141426738.png)
 
 - ### 我的
   - #### 已登录界面
@@ -161,27 +159,27 @@ OpenApiVideos
 
     - 可以查看用户主要信息，以及用户的图文动态
 
-    - ![image-20230911175120378](https://raw.githubusercontent.com/WuHaHa-svg/OpenApiVideos/MarkDownImgs/img/image-20230911175120378.png)
+    - ![image-20230912141452355](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230912141452355.png)
 
     - ##### 账户资料页面
 
     - 可以编辑用户信息
 
-    - ![image-20230911175308080](https://raw.githubusercontent.com/WuHaHa-svg/OpenApiVideos/MarkDownImgs/img/image-20230911175308080.png)
+    - ![image-20230912141507750](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230912141507750.png)
 
   - #### 未登录界面
 
   - 如果未登录的状态，则显示一个跳转登录、注册页面的组件
 
-  - ![image-20230911174459409](https://raw.githubusercontent.com/WuHaHa-svg/OpenApiVideos/MarkDownImgs/img/image-20230911174459409.png)
+  - ![image-20230912141551030](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230912141551030.png)
 
     - ##### 登录页面
 
-    - ![image-20230911174526002](https://raw.githubusercontent.com/WuHaHa-svg/OpenApiVideos/MarkDownImgs/img/image-20230911174526002.png)
+    - ![image-20230912141609458](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230912141609458.png)
     
     - ##### 注册页面
     
-    - ![image-20230911174558579](https://raw.githubusercontent.com/WuHaHa-svg/OpenApiVideos/MarkDownImgs/img/image-20230911174558579.png)
+    - ![image-20230912141621479](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230912141621479.png)
 
 ------
 
@@ -191,19 +189,19 @@ OpenApiVideos
 
   目前小程序是体验版，因为审核大大太严格，审核根本过不了，我会接到体验申请资格后及时同意的
 
-  ![image-20230912130133795](https://raw.githubusercontent.com/WuHaHa-svg/OpenApiVideos/MarkDownImgs/img/image-20230912130133795.png)
+  ![image-20230912141653344](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230912141653344.png)
 
 - ### 当然，你也可以下载本项目（可以从git导入，也可以下载到本地再导入）
 
-![image-20230912125325828](https://raw.githubusercontent.com/WuHaHa-svg/OpenApiVideos/MarkDownImgs/img/image-20230912125325828.png)
+![image-20230912141822620](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230912141822620.png)
 
-![image-20230912125520381](https://raw.githubusercontent.com/WuHaHa-svg/OpenApiVideos/MarkDownImgs/img/image-20230912125520381.png)
+![image-20230912141931840](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230912141931840.png)
 
 接下来运行到微信开发者工具即可，有不明白的可以参考[uni-app官网 (dcloud.net.cn)](https://uniapp.dcloud.net.cn/tutorial/run-and-debug.html)，在此我便不再赘述。
 
 接下来就是去微信公众平台为小程序配置安全域名和IP白名单，如果不配置的话，请求数据在开发者工具里面是正常的，一旦发布为体验版或者线上版，请求就会被微信拦截掉，配置安全域名和IP白名单后即可正常，主要配置的安全域名和IP白名单可以自行查看请求报文里面的请求URL和远程IP，查看方式如下：
 
-![image-20230912130734849](https://raw.githubusercontent.com/WuHaHa-svg/OpenApiVideos/MarkDownImgs/img/image-20230912130734849.png)
+![image-20230912142206888](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230912142206888.png)
 
 - ### 如果有任何疑惑，欢迎添加微信：WuHaHa-Unavailable咨询。备注：OpenApiVideos。
 
