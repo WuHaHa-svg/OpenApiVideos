@@ -1,3 +1,4 @@
+// 封装uni.chooseImage获取选取图片的本地缓存路径
 export const GetImgTempUrls = (count=1)=>{
 	return new Promise((resolve, reject) => {
 		uni.chooseImage({
@@ -13,7 +14,7 @@ export const GetImgTempUrls = (count=1)=>{
 		})
 	})
 }
-
+// 封装uni.uploadFile上传选取图片并获取对应的服务器路径
 export const GetServerImgUrl = (tempFilePath)=>{
 	let http = "https://api.apiopen.top"
 	return new Promise((resolve, reject) => {
