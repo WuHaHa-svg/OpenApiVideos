@@ -44,6 +44,7 @@
 		methods: {
 			backToMine(){
 				uni.reLaunch({url:"/pages/mine/mine"})
+				this.$store.commit("BaseConfig/changeTag","mine")
 			},
 			// 登录
 			async login() {

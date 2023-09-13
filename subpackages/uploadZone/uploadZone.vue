@@ -105,9 +105,8 @@
 				let res = await UploadZoneApi(data)
 				console.log(res);
 				if (res.data.code === 200) {
-					uni.redirectTo({
-						url: "/pages/zone/zone"
-					})
+					uni.redirectTo({url: "/pages/zone/zone"})
+					this.$store.commit("BaseConfig/changeTag","allDimc")
 					this.$toast("发送成功！", "success")
 				}
 			},

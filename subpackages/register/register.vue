@@ -57,6 +57,7 @@
 		methods: {
 			backToMine(){
 				uni.reLaunch({url:"/pages/mine/mine"})
+				this.$store.commit("BaseConfig/changeTag","mine")
 			},
 			async getVerify(){
 				// 获取验证码请求之前检测数据

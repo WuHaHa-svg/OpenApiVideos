@@ -4,7 +4,7 @@
 
 ## 项目简介
 
-​	本项目是我独立开发的一个简单vue2版本的uniapp微信小程序项目，用户可以登陆注册、可以滑动刷小视频、可以发送图文动态等功能，项目灵感是我学习前端的时候无意中了解到了OpenApi这个后端开源项目，并查看了这个开源项目提供的SwaggerUI，并逐个测试了一下，发现该项目提供的Api质量还不错，正好自己就从业于前端，因此就想调用OpenApi提供的接口自己开发一个前端项目实现接口提供的功能，巩固并提升自己独立开发的能力，为了进一步提升一下项目内代码的可读性，我后期专门细化了一下对代码的注释，欢迎大家clone此项目哦！
+​	本项目是我独立开发的一个简单vue2版本的uniapp微信小程序项目，用户可以登陆注册、可以滑动刷小视频、可以发送图文动态等功能，项目灵感是我学习前端的时候无意中了解到了OpenApi这个后端开源项目，并查看了这个开源项目提供的SwaggerUI，并逐个测试了一下，发现该项目提供的Api质量还不错，正好自己就从业于前端，因此就想调用OpenApi提供的接口自己开发一个前端项目实现接口提供的功能，巩固并提升自己独立开发的能力，整个开发过程我也是边看文档边开发，有时候注释写的有点不够具体，为了进一步提升一下项目内代码的可读性，我后期专门细化了一下对代码的注释，欢迎大家clone此项目哦！
 
 ------
 
@@ -101,13 +101,13 @@ OpenApiVideos
 
   - 随机看视频，可以上下滑动切换视频，点击屏幕播放或暂停视频
 
-  - ![image-20230912140854922](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230912140854922.png)
+  - ![image-20230913164917430](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230913164917430.png)
   
   - #### 列表
   
   - 可滑动列表并点击视频播放，列表滑动到底部自动加载下页数据
   
-  - ![image-20230912141149283](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230912141149283.png)
+  - <img src="https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230912141149283.png" alt="image-20230912141149283" style="zoom:80%;" />
   
   - ![image-20230912141209096](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230912141209096.png)
   
@@ -116,7 +116,7 @@ OpenApiVideos
 
   - 可以浏览所有用户发送的图文动态，滑动到底加载下一页数据
 
-  - ![image-20230913120338861](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230913120338861.png)
+  - ![](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230913164724874.png)
   
   - #### 发个动态
   
