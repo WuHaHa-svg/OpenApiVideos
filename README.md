@@ -116,7 +116,7 @@ OpenApiVideos
 
   - 可以浏览所有用户发送的图文动态，滑动到底加载下一页数据
 
-  - ![image-20230912141223848](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230912141223848.png)
+  - ![image-20230913120338861](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230913120338861.png)
   
   - #### 发个动态
   
