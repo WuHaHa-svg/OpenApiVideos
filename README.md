@@ -8,24 +8,6 @@
 
 ------
 
-## 项目致谢
-
-1. 用到的Decloud插件：[uv-code-input 验证码输入 全面兼容vue3+2、app、h5、小程序等多端 - DCloud 插件市场](https://ext.dcloud.net.cn/plugin?id=12306)
-
-2. 用到的DecloudSDK：[JS常用工具函数 - DCloud 插件市场](https://ext.dcloud.net.cn/plugin?id=1994)
-
-3. 后端接口OpenApi接口文档地址：[Swagger UI (apiopen.top)](https://api.apiopen.top/swagger/index.html#/)
-
-4. 项目中用到了阿里的字体图标库：[iconfont-阿里巴巴矢量图标库](https://www.iconfont.cn/)
-
-   感谢Decloud插件市场作者： [uv_UI ](https://ext.dcloud.net.cn/publisher?id=89985)提供的uv-code-input验证码输入框组件
-
-   感谢Decloud插件市场作者：[mine_king](https://ext.dcloud.net.cn/publisher?id=317001)提供的JS常用工具函数
-
-   感谢OpenApi项目团队提供的开源项目。
-
-   感谢阿里矢量图标库。
-
 ## 项目树
 
 OpenApiVideos  
@@ -183,7 +165,7 @@ OpenApiVideos
 
 ------
 
-## 项目预览
+## 项目预览与部署
 
 - ### 扫描下方体验版小程序二维码
 
@@ -191,7 +173,7 @@ OpenApiVideos
 
   ![image-20230912141653344](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230912141653344.png)
 
-- ### 当然，你也可以下载本项目（可以从git导入，也可以下载到本地再导入）
+- ### 下载本项目并部署到自己的微信小程序（可以从git导入，也可以下载到本地再导入）
 
 ![image-20230912141822620](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230912141822620.png)
 
@@ -199,10 +181,24 @@ OpenApiVideos
 
 接下来运行到微信开发者工具即可，有不明白的可以参考[uni-app官网 (dcloud.net.cn)](https://uniapp.dcloud.net.cn/tutorial/run-and-debug.html)，在此我便不再赘述。
 
-接下来就是去微信公众平台为小程序配置安全域名和IP白名单，如果不配置的话，请求数据在开发者工具里面是正常的，一旦发布为体验版或者线上版，请求就会被微信拦截掉，配置安全域名和IP白名单后即可正常，主要配置的安全域名和IP白名单可以自行查看请求报文里面的请求URL和远程IP，查看方式如下：
+接下来就是去微信公众平台为小程序配置服务器域名和IP白名单，如果不配置的话，请求数据在开发者工具里面是正常的，一旦发布为体验版或者线上版，请求就会被微信拦截掉，配置服务器域名和IP白名单后即可正常，因为我们的项目调用的接口服务时OpenApi，因此我们要把OpenApi的域名和主机IP设置为我们微信小程序的服务器域名和IP白名单，如下所示：
 
-![image-20230912142206888](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230912142206888.png)
+扫码登录[微信公众平台 (qq.com)](https://mp.weixin.qq.com/) => 点击左边导航栏“开发管理” => 点击“开发设置” => 设置IP白名单和服务器域名
+
+![image-20230913100340812](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230913100340812.png)
 
 - ### 如果有任何疑惑，欢迎添加微信：WuHaHa-Unavailable咨询。备注：OpenApiVideos。
 
 - ### 或者发送邮箱到：1813995050@qq.com
+
+------
+
+## 项目致谢
+
+感谢Decloud插件市场作者： [uv_UI ](https://ext.dcloud.net.cn/publisher?id=89985)提供的[uv-code-input 验证码输入 全面兼容vue3+2、app、h5、小程序等多端 - DCloud 插件市场](https://ext.dcloud.net.cn/plugin?id=12306)
+
+感谢Decloud插件市场作者：[mine_king](https://ext.dcloud.net.cn/publisher?id=317001)提供的[JS常用工具函数 - DCloud 插件市场](https://ext.dcloud.net.cn/plugin?id=1994)
+
+感谢OpenApi项目团队提供的开源项目[Swagger UI (apiopen.top)](https://api.apiopen.top/swagger/index.html#/)。
+
+感谢阿里矢量图标库[iconfont-阿里巴巴矢量图标库](https://www.iconfont.cn/)。

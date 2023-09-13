@@ -25,7 +25,7 @@
 			</view>
 		</view>
 		<!-- 未登录展示内容 -->
-		<view class="notLogin" v-if="!isLogin">
+		<view class="not-login" v-if="!isLogin">
 			<!-- 跳转 登录/注册 的组件 -->
 			<UserCard></UserCard>
 		</view>
@@ -231,7 +231,7 @@
 			margin-top: 10px;
 			padding-bottom: 80px;
 		}
-		.notLogin{
+		.not-login{
 			position: fixed;
 			top: 25vh;
 			left: 0;
