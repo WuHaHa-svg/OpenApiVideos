@@ -35,6 +35,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/chat/chat",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"subPackages": [{
 		"root": "subpackages",

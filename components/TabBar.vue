@@ -12,6 +12,9 @@
 		<view class="tab-box" :class="activeTag === 'wallpaper'? 'active':'nil'" @tap="goTo('wallpaper','/pages/wallpaper/wallpaper')">
 			壁纸
 		</view>
+		<view class="tab-box" :class="activeTag === 'chat'? 'active':'nil'" @tap="goTo('chat','/pages/chat/chat')">
+			AI-Chat
+		</view>
 		<view class="tab-box" :class="activeTag === 'mine'? 'active':'nil'" @tap="goTo('mine','/pages/mine/mine')">
 			我的
 		</view>
@@ -33,7 +36,6 @@
 			// 点击对应标题跳转对应页面
 			goTo(name,url){
 				console.log(url)
-				// uni.switchTab({url})
 				if (this.activeTag == name) return
 				uni.reLaunch({url})
 				// 修改激活tag
