@@ -1,20 +1,27 @@
 <template>
 	<view class="content" :style="{paddingTop:top}">
 		<SystemHeight></SystemHeight>
-		<view v-for="(item,index) in historyTextList" :key="index">
-			<view v-if="item.role === 'user'" class="msg">
-				<image class="avatar" src="/static/avatar.png" mode="aspectFill" :style="{marginLeft:'8px'}"></image>
-				<view class="msg-content">{{item.content}}</view>
+		<view v-if="isLogin">
+			<view v-for="(item,index) in historyTextList" :key="index">
+				<view v-if="item.role === 'user'" class="msg">
+					<image class="avatar" :src="avatarUrl" mode="aspectFill" :style="{marginLeft:'8px'}"></image>
+					<!-- <view class="msg-content">{{item.content}}</view> -->
+					<zero-markdown-view class="msg-content" themeColor="#007AFF" :markdown="item.content"></zero-markdown-view>
+				</view>
+				<view v-if="item.role === 'assistant'" class="msg" :style="{flexDirection:'row'}">
+					<image class="avatar" src="/static/avatar.png" mode="aspectFill" :style="{marginRight:'8px'}"></image>
+					<!-- <view class="msg-content">{{item.content}}</view> -->
+					<zero-markdown-view class="msg-content" themeColor="#007AFF" :markdown="item.content"></zero-markdown-view>
+				</view>
+				<!-- <view v-if="item.role === 'assistant'" class="msg ai-msg">{{isAnswering?tempRes:item.content}}</view> -->
 			</view>
-			<view v-if="item.role === 'assistant'" class="msg" :style="{flexDirection:'row'}">
-				<image class="avatar" src="/static/avatar.png" mode="aspectFill" :style="{marginRight:'8px'}"></image>
-				<view class="msg-content">{{item.content}}</view>
+			<view class="input-area">
+				<input class="input" type="text" v-model="text" placeholder="请开始提问吧!">
+				<view class="send" @click="send">发送</view>
 			</view>
-			<!-- <view v-if="item.role === 'assistant'" class="msg ai-msg">{{isAnswering?tempRes:item.content}}</view> -->
 		</view>
-		<view class="input-area">
-			<input class="input" type="text" v-model="text" placeholder="请开始提问吧!">
-			<view class="send" @click="send">发送</view>
+		<view v-if="!isLogin" class="not-login">
+			<UserCard></UserCard>
 		</view>
 		<TabBar></TabBar>
 	</view>
@@ -23,12 +30,14 @@
 <script>
 	import SystemHeight from "@/components/SystemHeight.vue"
 	import TabBar from "@/components/TabBar.vue"
+	import UserCard from "@/components/UserCard.vue"
 	import { XF_AuthorUrl } from "@/utils/server/AuthorUrlGener.js"
-	import { GetUsrData } from "../../utils/GetData"
+	import { GetUsrData } from "@/utils/GetData"
 
 	export default {
 		components: {
 			SystemHeight,
+			UserCard,
 			TabBar
 		},
 		data() {
@@ -125,6 +134,10 @@
 		},
 		avatarUrl(){
 			return GetUsrData().head_url
+		},
+		// 登陆状态
+		isLogin(){
+			return uni.getStorageSync('isLogin')
 		}
 	},
 	}
@@ -134,8 +147,16 @@
 	.content {
 		box-sizing: border-box;
 		padding: 0 20px;
+		padding-bottom: 100px;
 		width: 100%;
 		color: #FFF;
+		.not-login{
+			position: fixed;
+			top: 25vh;
+			left: 0;
+			height: 50vh;
+			width: 100%;
+		}
 		.msg{
 			display: flex;
 			flex-direction: row-reverse;
@@ -162,7 +183,7 @@
 			display: flex;
 			justify-content: space-around;
 			align-items: center;
-			position: absolute;
+			position: fixed;
 			bottom: 60px;
 			width: calc(100% - 40px);
 			height: 40px;
