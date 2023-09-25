@@ -37,14 +37,13 @@ class WebsocketUtil {
 		this.socketTask.onError((res) => {
 			console.log('WebSocket连接打开失败，请检查！');
 			uni.showToast({
-				title:"请配置APIKEY!"
+				title:"请配置APIKEY!",
+				icon:"error",
+				duration:2000
 			})
 		});
 		
-		// 这里仅是事件监听【如果socket关闭了会执行】
-		this.socketTask.onClose(() => {
-			console.log("已经被关闭了")
-		})
+		
 	}
 	
 	//发送消息
@@ -52,7 +51,7 @@ class WebsocketUtil {
 		// 注：只有连接正常打开中 ，才能正常成功发送消息
 		this.socketTask.send({
 			data: value,
-			async success() {
+			success() {
 				console.log("消息发送成功");
 			},
 		});
@@ -64,7 +63,13 @@ class WebsocketUtil {
 			return callback(res)
 		})
 	}
- 
+	//关闭链接
+	close(){
+		// 这里仅是事件监听【如果socket关闭了会执行】
+		this.socketTask.onClose(() => {
+			console.log("已经被关闭了")
+		})
+	}
 }
 
 export default WebsocketUtil

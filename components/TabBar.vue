@@ -54,7 +54,6 @@
 		left: 0;
 		display: flex;
 		justify-content: space-between;
-		background-color: rgba(red, green, blue, .5);
 		backdrop-filter: blur(30px);
 		.tab-box{
 			width: 25%;

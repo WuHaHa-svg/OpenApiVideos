@@ -1,10 +1,13 @@
 // 生成鉴权URL,方便以后添加多种AI
 
 // 通用鉴权url生成所需工具函数
+
+// import * as base64 from "base-64"
+// import * as utf8 from "utf8"
 import * as base64 from "@/js_sdk/base-64/base64.js"
 import * as utf8 from "@/js_sdk/utf8/utf8.js"
 import CryptoJS from "@/js_sdk/crypto-js/crypto-js.js"
-import parser from "@/js_sdk/fast-xml-parser/src/parser.js"
+import parser from "@/js_sdk/fast-xml-parser/src/parser"
 
 //讯飞-星火认知大模型
 export const XF_AuthorUrl = ()=>{
@@ -14,12 +17,12 @@ export const XF_AuthorUrl = ()=>{
 		var APPID = "dc46af5c"
 		
 		// WebSocket链接地址
-		var url = "wss://ise-api.xfyun.cn/v2/open-ise"
-		var host = "ise-api.xfyun.cn"
+		var url = "wss://spark-api.xf-yun.com/v2.1/chat"
+		var host = "spark-api.xf-yun.com"
 		
 		// 鉴权参数
 		var date = new Date().toGMTString()
-		var signatureOrigin = `host: ${host}\ndate: ${date}\nGET /v2/open-ise HTTP/1.1`
+		var signatureOrigin = `host: ${host}\ndate: ${date}\nGET /v2.1/chat HTTP/1.1`
 		var signatureSha = CryptoJS.HmacSHA256(signatureOrigin, APISecret)
 		var signature = CryptoJS.enc.Base64.stringify(signatureSha)
 		var algorithm = "hmac-sha256"
