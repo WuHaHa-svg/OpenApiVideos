@@ -37,7 +37,9 @@
 <script>
 	import SystemHeight from "@/components/SystemHeight.vue"
 	import {checkStr} from "@/js_sdk/mineking-tool/tool.js"
-	import {RegisterApi,VerifyCodeApi} from "@/utils/server/Api.js"
+	import {RegisterApi,VerifyCodeApi,GetUserApi} from "@/utils/server/Api.js"
+	import {Setnk,SetUsrData,InitAI} from "@/utils/SetData.js"
+	
 	export default {
 		components: {
 			SystemHeight
@@ -56,7 +58,7 @@
 		},
 		methods: {
 			backToMine(){
-				uni.reLaunch({url:"/pages/mine/mine"})
+				uni.redirectTo({url:"/pages/mine/mine"})
 				this.$store.commit("BaseConfig/changeTag","mine")
 			},
 			async getVerify(){
@@ -93,13 +95,31 @@
 					return
 				}
 				this.$toast("账户注册成功！","success")
-				try{
+				// 设置token
+				try {
 					Setnk(res.data.result.token)
-				}catch(e){
-					console.log(e,"token设置失败！")
+				} catch (e) {
+					console.log(e, "登录token设置失败！")
+					return
 				}
-
-				console.log(this.$store.state.UserData.token)
+				// 获取用户数据
+				let user = await GetUserApi()
+				console.log("用户数据：",user)
+				// 设置用户数据
+				try{
+					let userData = {
+						...user.data.result,
+						id:res.data.result.id,
+						level:res.data.result.level
+					}
+					console.log(userData)
+					SetUsrData(userData)
+					InitAI()
+				}catch(e){
+					console("用户信息设置失败！")
+					return
+				}
+				this.backToMine()
 			},
 			reset(){
 				this.formData.account = ""

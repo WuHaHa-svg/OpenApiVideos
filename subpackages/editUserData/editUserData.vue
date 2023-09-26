@@ -29,6 +29,11 @@
 			<view class="store-mode">{{storeMode}}</view>
 			<switch :checked="isUpload" @change="changeUpload" color="aqua"/>
 		</view>
+		<view class="setting-item" @tap="inputConfig">
+			<view class="input-title">AI-Chat配置</view>
+			<view class="input-title">></view>
+		</view>
+		<AiConfiger :status="isConfigInput" @Confm="conInput" @Cancl="canInput" @init="initConfig"></AiConfiger>
 		<!-- 底部按钮 -->
 		<view class="opt-btns">
 			<button @click="logout" class="opt-btn logout">注销</button>
@@ -63,8 +68,10 @@
 	import {SetUsrData} from '@/utils/SetData.js'
 	import {ArryToDate,DateToArry} from "@/utils/DateArry.js"
 	import {GetImgTempUrls,GetServerImgUrl} from "@/utils/server/UploadImg.js"
+	import AiConfiger from "./AiConfiger.vue"
 	
 	export default {
+		components:{AiConfiger},
 		data() {
 			const years = []
 			let date = new Date()
@@ -87,7 +94,8 @@
 				visible: false,
 				birDay: "",
 				UserData: {},
-				storeMode:""
+				storeMode:"",
+				isConfigInput:false
 			}
 		},
 		created() {
@@ -113,6 +121,20 @@
 			}
 		},
 		methods: {
+			//填写AI配置
+			inputConfig(){
+				this.isConfigInput = true
+			},
+			conInput(){
+				this.isConfigInput = false
+			},
+			canInput(){
+				this.isConfigInput = false
+			},
+			initConfig(){
+				this.isConfigInput = false
+				this.$toast("APPKEY等信息已被初始化！","none")
+			},
 			// 改变存储模式
 			changeUpload(e){
 				if (e.detail.value) this.$toast("所有图片将存储到服务器，次日清除","none")
@@ -203,7 +225,7 @@
 		width: 100%;
 		box-sizing: border-box;
 		color: #FFF;
-
+		padding-bottom: 10vh;
 		.title-box {
 			height: 300rpx;
 			display: flex;
@@ -344,11 +366,13 @@
 		.opt-btns{
 			position: fixed;
 			left: 0;
-			bottom: 6vh;
+			bottom: 3vh;
 			display: flex;
 			justify-content: space-around;
 			height: 5vh;
 			width: 100%;
+			backdrop-filter: blur(30px);
+			
 			.opt-btn{
 				width: 25%;
 				background-color: aqua;

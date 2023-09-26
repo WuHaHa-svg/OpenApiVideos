@@ -26,7 +26,7 @@
 	import SystemHeight from "@/components/SystemHeight.vue"
 	import {checkStr} from "@/js_sdk/mineking-tool/tool.js"
 	import {LoginApi,GetUserApi} from "@/utils/server/Api.js"
-	import {Setnk,SetUsrData} from "@/utils/SetData.js"
+	import {Setnk,SetUsrData,InitAI} from "@/utils/SetData.js"
 	export default {
 		components: {
 			SystemHeight
@@ -43,7 +43,7 @@
 		},
 		methods: {
 			backToMine(){
-				uni.reLaunch({url:"/pages/mine/mine"})
+				uni.redirectTo({url:"/pages/mine/mine"})
 				this.$store.commit("BaseConfig/changeTag","mine")
 			},
 			// 登录
@@ -87,6 +87,7 @@
 					}
 					console.log(userData)
 					SetUsrData(userData)
+					InitAI()
 				}catch(e){
 					console("用户信息设置失败！")
 					return
