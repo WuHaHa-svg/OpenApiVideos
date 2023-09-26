@@ -14,6 +14,7 @@ import {GetAIConfig} from "@/utils/GetData.js"
 export const XF_AuthorUrl = ()=>{
 		//APISecrate、APIKey
 		let AI_DATA = GetAIConfig()
+		console.log(typeof AI_DATA,AI_DATA);
 		var APISecret = AI_DATA.APISecret
 		var APIKey = AI_DATA.APIKey
 		var APPID = AI_DATA.APPID

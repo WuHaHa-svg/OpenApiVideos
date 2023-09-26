@@ -12,7 +12,12 @@ export const GetUsrData = (data) =>{
 	else return {"updatedAt":"1970-01-01 00:00:00","name":"未登录","head_url":"","blurb":"未登录","birthday":"1970-01-01"}
 }
 
-
 export const GetAIConfig = ()=>{
-	return uni.getStorageSync('AIConfig')
+	let data = uni.getStorageSync('AIConfig')
+	return JSON.parse(data)
+}
+
+export const GetAIMsgs = ()=>{
+	let data = uni.getStorageSync('AIMsgs')
+	return JSON.parse(data)
 }

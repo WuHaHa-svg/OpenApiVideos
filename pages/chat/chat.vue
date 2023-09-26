@@ -1,22 +1,20 @@
 <template>
 	<view class="content" :style="{paddingTop:top}">
 		<SystemHeight></SystemHeight>
-		<view v-if="isLogin">
+		<view class="AI-title" :style="{top}">AI聊天</view>
+		<view v-if="isLogin" class="login-box">
 			<view v-for="(item,index) in historyTextList" :key="index">
 				<view v-if="item.role === 'user'" class="msg">
 					<image class="avatar" :src="avatarUrl" mode="aspectFill" :style="{marginLeft:'8px'}"></image>
-					<!-- <view class="msg-content">{{item.content}}</view> -->
 					<zero-markdown-view class="msg-content" themeColor="#007AFF" :markdown="item.content"></zero-markdown-view>
 				</view>
 				<view v-if="item.role === 'assistant'" class="msg" :style="{flexDirection:'row'}">
 					<image class="avatar" src="/static/avatar.png" mode="aspectFill" :style="{marginRight:'8px'}"></image>
-					<!-- <view class="msg-content">{{item.content}}</view> -->
 					<zero-markdown-view class="msg-content" themeColor="#007AFF" :markdown="item.content"></zero-markdown-view>
 				</view>
-				<!-- <view v-if="item.role === 'assistant'" class="msg ai-msg">{{isAnswering?tempRes:item.content}}</view> -->
 			</view>
 			<view class="input-area">
-				<input class="input" type="text" v-model="text" placeholder="请开始提问吧!">
+				<textarea class="input" v-model="text" placeholder="请开始提问吧!"></textarea>
 				<view class="send" @click="send">发送</view>
 			</view>
 		</view>
@@ -44,12 +42,40 @@
 			return {
 				socketTask: '',
 				isAnswering: false,
-				historyTextList: [],
+				historyTextList: [
+					{"role":"user","content":"风格和适度放松的"},
+					{"role":"user","content":"风格和适度放松的"},
+					{"role":"user","content":"风格和适度放松的"},
+					{"role":"user","content":"风格和适度放松的"},
+					{"role":"user","content":"风格和适度放松的"},
+					{"role":"user","content":"风格和适度放松的"},
+					{"role":"user","content":"风格和适度放松的"},
+					{"role":"user","content":"风格和适度放松的"},
+					{"role":"user","content":"风格和适度放松的"},
+					{"role":"user","content":"风格和适度放松的"},
+					{"role":"user","content":"风格和适度放松的"},
+					{"role":"user","content":"风格和适度放松的"},
+					{"role":"user","content":"风格和适度放松的"},
+				],
 				text: '',
 				tempRes: ''
 			}
 		},
+		mounted() {
+			this.toBottom()
+		},
 		methods: {
+			toBottom(){
+				this.$nextTick(()=>{
+					let timer = setTimeout(()=>{
+						clearTimeout(timer)
+						uni.pageScrollTo({
+							scrollTop:9999,
+							duration:300
+						})
+					},300)
+				})
+			},
 			send() {
 				if (this.text === "") {
 					this.$toast("输入不可为空!","none")
@@ -62,7 +88,6 @@
 						console.log(res, "ws成功连接...")
 					}
 				})
-
 				this.socketTask.onError((err) => {
 					console.log("连接失败：", err);
 					this.$toast("请配置APIKEY!", "error")
@@ -73,6 +98,7 @@
 						"role": "user",
 						"content": this.text
 					})
+					this.toBottom()
 					this.text = ""
 					let params = {
 						"header": {
@@ -117,6 +143,7 @@
 								"role": "assistant",
 								"content": this.tempRes
 							})
+							this.toBottom()
 							this.socketTask.close()
 							this.isAnswering = false
 							this.tempRes = ""
@@ -146,10 +173,21 @@
 <style lang="scss" scoped>
 	.content {
 		box-sizing: border-box;
-		padding: 0 20px;
-		padding-bottom: 100px;
 		width: 100%;
 		color: #FFF;
+		padding-bottom: 120px;
+		
+		.AI-title{
+			z-index: 9999;
+			position: sticky;
+			height: 60px;
+			width: 100vw;
+			line-height: 60px;
+			text-align: center;
+			font-weight: bolder;
+			text-shadow: -1px -1px aqua,1px 1px red;
+			backdrop-filter: blur(30px);
+		}
 		.not-login{
 			position: fixed;
 			top: 25vh;
@@ -157,54 +195,59 @@
 			height: 50vh;
 			width: 100%;
 		}
-		.msg{
-			display: flex;
-			flex-direction: row-reverse;
-			max-width: 100%;
-			margin-bottom: 28px;
-			.avatar{
-				width: 3em;
-				height: 3em;
-				border-radius: 50%;
-				vertical-align: middle;
-			}
-			.msg-content{
-				box-sizing: border-box;
-				padding: 6px 12px;
-				max-width: 60%;
-				border: 1px solid #AAA;
-				border-radius: 4px;
-				line-height: 30px;
-				overflow: hidden;
-			}
-		}
-
-		.input-area {
-			display: flex;
-			justify-content: space-around;
-			align-items: center;
-			position: fixed;
-			bottom: 60px;
-			width: calc(100% - 40px);
-			height: 40px;
-			backdrop-filter: blur(30px);
-			
-			.input {
-				width: 70%;
-				height: 36px;
-				box-sizing: border-box;
-				border: 1px solid #AAA;
-				border-radius: 4px;
-				padding: 0 4px;
+		.login-box{
+			box-sizing: border-box;
+			padding: 0px 20px;
+			.msg{
+				display: flex;
+				flex-direction: row-reverse;
+				max-width: 100%;
+				margin-bottom: 28px;
+				.avatar{
+					width: 3em;
+					height: 3em;
+					border-radius: 50%;
+					vertical-align: middle;
+				}
+				.msg-content{
+					box-sizing: border-box;
+					padding: 6px 12px;
+					max-width: 60%;
+					border: 1px solid #AAA;
+					border-radius: 4px;
+					line-height: 30px;
+					overflow: hidden;
+				}
 			}
 
-			.send {
-				width: 20%;
-				height: 36px;
-				border-radius: 4px;
-				line-height: 36px;
-				text-align: center;
-				border: 1px solid #AAA;	
+			.input-area {
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				position: fixed;
+				left: 0;
+				bottom: 60px;
+				width: 100%;
+				height: 60px;
+				backdrop-filter: blur(30px);
+				
+				.input {
+					width: 70%;
+					height: 44px;
+					box-sizing: border-box;
+					border: 1px solid #AAA;
+					border-radius: 4px;
+					padding: 0 4px;
+				}
+
+				.send {
+					width: 20%;
+					height: 44px;
+					border-radius: 4px;
+					line-height: 44px;
+					text-align: center;
+					border: 1px solid #AAA;	
+				}
 			}
 		}
 	}

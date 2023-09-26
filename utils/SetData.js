@@ -26,3 +26,7 @@ export const InitAI = ()=>{
 export const SetAI = (data)=>{
 	uni.setStorageSync('AIConfig',JSON.stringify(data))
 }
+
+export const SetAIMsgs = (data)=>{
+	uni.setStorageSync('AIMsgs',JSON.stringify(data))
+}
