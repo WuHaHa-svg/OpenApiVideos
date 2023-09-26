@@ -10,7 +10,7 @@
 					<zero-markdown-view class="msg-content" themeColor="#007AFF" :markdown="item.content"></zero-markdown-view>
 				</view>
 				<view v-if="item.role === 'assistant'" class="msg" :style="{flexDirection:'row'}">
-					<image class="avatar" src="/static/avatar.png" mode="aspectFill" :style="{marginRight:'8px'}"></image>
+					<image class="avatar" src="/static/AI.png" mode="aspectFill" :style="{marginRight:'8px'}"></image>
 					<!-- <view class="msg-content">{{item.content}}</view> -->
 					<zero-markdown-view class="msg-content" themeColor="#007AFF" :markdown="item.content"></zero-markdown-view>
 				</view>
