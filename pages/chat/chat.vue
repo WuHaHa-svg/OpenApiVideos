@@ -3,13 +3,15 @@
 		<SystemHeight></SystemHeight>
 		<view class="AI-title" :style="{top}">AI聊天</view>
 		<view v-if="isLogin" class="login-box">
-			<view v-for="(item,index) in historyTextList" :key="index">
+			<view v-for="item in historyTextList" :key="item.id">
 				<view v-if="item.role === 'user'" class="msg">
 					<image class="avatar" :src="avatarUrl" mode="aspectFill" :style="{marginLeft:'8px'}"></image>
+					<!-- <view class="msg-content">{{item.content}}</view> -->
 					<zero-markdown-view class="msg-content" themeColor="#007AFF" :markdown="item.content"></zero-markdown-view>
 				</view>
 				<view v-if="item.role === 'assistant'" class="msg" :style="{flexDirection:'row'}">
 					<image class="avatar" src="/static/avatar.png" mode="aspectFill" :style="{marginRight:'8px'}"></image>
+					<!-- <view class="msg-content">{{item.content}}</view> -->
 					<zero-markdown-view class="msg-content" themeColor="#007AFF" :markdown="item.content"></zero-markdown-view>
 				</view>
 			</view>
@@ -30,8 +32,9 @@
 	import TabBar from "@/components/TabBar.vue"
 	import UserCard from "@/components/UserCard.vue"
 	import { XF_AuthorUrl } from "@/utils/server/AuthorUrlGener.js"
-	import { GetUsrData } from "@/utils/GetData"
-
+	import { GetAIMsgs, GetUsrData } from "@/utils/GetData"
+	import { SetAIMsgs } from "@/utils/SetData"
+	import { uniqueId } from "@/js_sdk/mineking-tool/tool.js"
 	export default {
 		components: {
 			SystemHeight,
@@ -41,28 +44,31 @@
 		data() {
 			return {
 				socketTask: '',
-				isAnswering: false,
-				historyTextList: [
-					{"role":"user","content":"风格和适度放松的"},
-					{"role":"user","content":"风格和适度放松的"},
-					{"role":"user","content":"风格和适度放松的"},
-					{"role":"user","content":"风格和适度放松的"},
-					{"role":"user","content":"风格和适度放松的"},
-					{"role":"user","content":"风格和适度放松的"},
-					{"role":"user","content":"风格和适度放松的"},
-					{"role":"user","content":"风格和适度放松的"},
-					{"role":"user","content":"风格和适度放松的"},
-					{"role":"user","content":"风格和适度放松的"},
-					{"role":"user","content":"风格和适度放松的"},
-					{"role":"user","content":"风格和适度放松的"},
-					{"role":"user","content":"风格和适度放松的"},
-				],
+				// isAnswering: false,
+				historyTextList: [],
 				text: '',
 				tempRes: ''
 			}
 		},
+		created() {
+			this.historyTextList = GetAIMsgs()
+			console.log("@",GetAIMsgs())
+		},
 		mounted() {
 			this.toBottom()
+		},
+		beforeDestroy() {
+			SetAIMsgs(this.historyTextList)
+		},
+		watch:{
+			"historyTextList":{
+				handler(nV){
+					if(nV.length === 18){
+						nV.shift()
+					}
+					// SetAIMsgs(nV)
+				}
+			}
 		},
 		methods: {
 			toBottom(){
@@ -90,13 +96,21 @@
 				})
 				this.socketTask.onError((err) => {
 					console.log("连接失败：", err);
-					this.$toast("请配置APIKEY!", "error")
+					// this.$toast("APIKEY已失效!", "error")
+					this.historyTextList.push({
+						"role": "user",
+						"content": this.text,
+						"id":uniqueId()
+					})
+					this.toBottom()
+					this.text = ""
 				})
 
 				this.socketTask.onOpen((res) => {
 					this.historyTextList.push({
 						"role": "user",
-						"content": this.text
+						"content": this.text,
+						"id":uniqueId()
 					})
 					this.toBottom()
 					this.text = ""
@@ -124,28 +138,37 @@
 
 				// 接受到消息时
 				this.socketTask.onMessage((res) => {
-						console.log('收到API返回的内容：', res.data)
 						let obj = JSON.parse(res.data)
-						let dataArray = obj.payload.choices.text
-						this.isAnswering = true
-						for (let i = 0; i < dataArray.length; i++) {
-							this.tempRes = this.tempRes + dataArray[i].content
-						}
-						// let temp = JSON.parse(res.data)
 						if (obj.header.code !== 0) {
 							console.log(`${obj.header.code}:${obj.message}`)
 							this.$toast(obj.message, "none")
 							this.socketTask.close()
-							this.isAnswering = false
 							this.tempRes = ""
-						} else if (obj.header.status === 2) {
+						}
+						if (obj.header.status === 0){
 							this.historyTextList.push({
 								"role": "assistant",
-								"content": this.tempRes
+								"content": "",
+								"id":uniqueId()
 							})
+							let dataArray = obj.payload.choices.text
+							for (let i = 0; i < dataArray.length; i++) {
+								this.historyTextList.at(-1).content += dataArray[i].content
+							}
+						}
+						if(obj.header.status === 1) {
+							let dataArray = obj.payload.choices.text
+							for (let i = 0; i < dataArray.length; i++) {
+								this.historyTextList.at(-1).content += dataArray[i].content
+							}
+						}
+						if (obj.header.status === 2) {
+							let dataArray = obj.payload.choices.text
+							for (let i = 0; i < dataArray.length; i++) {
+								this.historyTextList.at(-1).content += dataArray[i].content
+							}
 							this.toBottom()
 							this.socketTask.close()
-							this.isAnswering = false
 							this.tempRes = ""
 							console.log("@",this.historyTextList);
 						}

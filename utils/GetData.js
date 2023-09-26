@@ -19,5 +19,6 @@ export const GetAIConfig = ()=>{
 
 export const GetAIMsgs = ()=>{
 	let data = uni.getStorageSync('AIMsgs')
-	return JSON.parse(data)
+	if (data) return JSON.parse(data)
+	return []
 }

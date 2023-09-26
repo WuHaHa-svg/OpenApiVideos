@@ -127,6 +127,7 @@
 			},
 			conInput(){
 				this.isConfigInput = false
+				this.$toast("APPKEY等信息已设置成功！","none")
 			},
 			canInput(){
 				this.isConfigInput = false
