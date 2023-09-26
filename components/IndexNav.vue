@@ -59,8 +59,7 @@
 				})[0]
 				console.log(path)
 				if (this.activeTag == path.tag) return
-				if((path.tag==='index')||(path.tag==='allDimc')) uni.reLaunch({url:path.url})
-				else uni.redirectTo({url:path.url})
+				uni.redirectTo({url:path.url})
 				// 切换激活标题tag
 				this.$store.commit('BaseConfig/changeTag',path.tag)
 			}

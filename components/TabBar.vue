@@ -48,7 +48,7 @@
 				//获取页面路由
 				let url = this.$store.state.BaseConfig.tags.filter(item=>item.tag === name)[0].url
 				console.log(url);
-				uni.reLaunch({url})
+				uni.redirectTo({url})
 				// 修改激活tag
 				this.$store.commit('BaseConfig/changeTag',name)
 			}

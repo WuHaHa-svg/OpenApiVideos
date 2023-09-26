@@ -1,7 +1,7 @@
 <script>
 	import { PagesManage } from "@/utils/server/Api.js"
 	export default {
-		onLaunch: async function() {
+		onLaunch: function() {
 			console.log('App Launch')
 			if (uni.getSystemInfoSync().osName === "windows"){
 				this.$store.commit('BaseConfig/setTop', 54)
@@ -9,9 +9,11 @@
 				this.$store.commit('BaseConfig/setTop', uni.getSystemInfoSync().safeArea.top)
 			}
 			
-			let res = await PagesManage()
-			console.log("配置文件：",res);
-			this.$store.commit('BaseConfig/pagesDisplay',res.data)
+			let res = PagesManage().then(res=>{
+				console.log("配置文件：",res.data)
+				this.$store.commit('BaseConfig/pagesDisplay',res.data)
+			})
+			
 		},
 		onShow: function() {
 			console.log('App Show')
