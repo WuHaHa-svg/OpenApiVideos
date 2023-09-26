@@ -27,11 +27,15 @@ const requestApi = function(options = {}) {
 	options.url = base_url + options.url
 	options.timeout = 10000
 	options.dataType = 'json'
-	
+	//请求头预处理
 	if (options.isAuth) {
 		options = addAuth(options)
 	}
-	
+	// 页面管理Api预处理
+	if (options.isPage) {
+		options.url = "https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/config.json"
+	}
+	//请求Promise化
 	return new Promise((resolve,reject)=>{
 		uni.request({
 			url:options.url,

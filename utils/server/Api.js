@@ -132,3 +132,14 @@ export const UploadZoneApi = async function(data){
 	let res = await requestApi(options)
 	return res
 }
+
+//PagesManage
+export const PagesManage = async function(){
+	let url = 'none'
+	let method = 'GET'
+	const options = makeOptions(url,method)
+	options.isAuth = false
+	options.isPage = true
+	let res = await requestApi(options)
+	return res
+}
