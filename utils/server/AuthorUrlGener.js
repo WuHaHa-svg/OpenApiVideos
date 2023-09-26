@@ -8,13 +8,15 @@ import * as base64 from "@/js_sdk/base-64/base64.js"
 import * as utf8 from "@/js_sdk/utf8/utf8.js"
 import CryptoJS from "@/js_sdk/crypto-js/crypto-js.js"
 import parser from "@/js_sdk/fast-xml-parser/src/parser"
+import {GetAIConfig} from "@/utils/GetData.js"
 
 //讯飞-星火认知大模型
 export const XF_AuthorUrl = ()=>{
 		//APISecrate、APIKey
-		var APISecret = "MWQwMTRkOTZhYWEzNTkyNjcwM2JiMDU2"
-		var APIKey = "f2183557703eff19090af8215ed82cf0"
-		var APPID = "dc46af5c"
+		let AI_DATA = GetAIConfig()
+		var APISecret = AI_DATA.APISecret
+		var APIKey = AI_DATA.APIKey
+		var APPID = AI_DATA.APPID
 		
 		// WebSocket链接地址
 		var url = "wss://spark-api.xf-yun.com/v2.1/chat"

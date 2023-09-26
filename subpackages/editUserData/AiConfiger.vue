@@ -6,9 +6,18 @@
 			输入APIKEY信息
 		</view>
 		<view class="input-box">
-			<input type="text">
-			<input type="text">
-			<input type="text">
+			<view class="input">
+				<view class="config-title">APPID</view>
+				<input class="config-input" v-model="AI_DATA.APPID" type="text">
+			</view>
+			<view class="input">
+				<view class="config-title">APIKey</view>
+				<input class="config-input" v-model="AI_DATA.APIKey" type="text">
+			</view>
+			<view class="input">
+				<view class="config-title">APISecret</view>
+				<input class="config-input" v-model="AI_DATA.APISecret" type="text">
+			</view>
 		</view>
 		<!-- 按钮 -->
 		<view class="confirm-btns">
@@ -20,13 +29,19 @@
 </template>
 
 <script>
+	import { SetAI,InitAI } from '@/utils/SetData';
 	export default {
 		name: "AiConfiger",
 		props:['status'],
 		data() {
 			return {
 				animationData: {},
-				animation: ""
+				animation: "",
+				AI_DATA:{
+					APPID:"",
+					APIKey:"",
+					APISecret:""
+				}
 			};
 		},
 		created() {
@@ -65,18 +80,27 @@
 				this.$emit("Cancl")
 			},
 			yes() {
+				let data = this.AI_DATA
+				if((data.APIKey === "") || (data.APISecret === "") || (data.APPID === "")) {
+					this.$toast("输入不可为空!","error")
+					return
+				}
+				SetAI(data)
 				this.$emit("Confm")
 			},
 			init(){
+				InitAI()
 				this.$emit("init")
 			}
 		}
 	}
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 	.confirm-box {
 		z-index: 9999;
+		display: flex;
+		flex-direction: column;
 		position: fixed;
 		top: calc(30vh - 95px);
 		left: calc(50vw - 138px);
@@ -99,18 +123,30 @@
 			color: #FFF;
 		}
 		.input-box{
-			border: 1px solid #AAA;
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			align-items: center;
+			border-bottom: 2px solid rgba(255, 255, 255, .2);
+			.input{
+				width: 80%;
+				.config-input{
+					padding-left: 2px;
+					border: 2px solid rgba(255, 255, 255, .2);
+				}
+			}
 		}
 		.confirm-btns {
 			display: flex;
 			justify-content: space-around;
-			height: 60px;
+			height: 54px;
 			width: 100%;
 
 			.confirm-btn {
-				height: 60px;
+				height: 54px;
 				width: 138px;
-				line-height: 60px;
+				line-height: 54px;
 				text-align: center;
 				box-sizing: border-box;
 				background-color: transparent;
@@ -120,11 +156,11 @@
 			}
 
 			.confirm-btn:first-child {
-				border-right: 1px solid rgba(255, 255, 255, .2);
+				border-right: 2px solid rgba(255, 255, 255, .2);
 			}
 
 			.confirm-btn:last-child {
-				border-left: 1px solid rgba(255, 255, 255, .2);
+				border-left: 2px solid rgba(255, 255, 255, .2);
 			}
 		}
 	}

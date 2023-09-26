@@ -22,3 +22,7 @@ export const InitAI = ()=>{
 	}
 	uni.setStorageSync('AIConfig',JSON.stringify(data))
 }
+
+export const SetAI = (data)=>{
+	uni.setStorageSync('AIConfig',JSON.stringify(data))
+}
