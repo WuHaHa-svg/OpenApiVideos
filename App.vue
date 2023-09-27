@@ -1,7 +1,8 @@
 <script>
 	import { PagesManage } from "@/utils/server/Api.js"
+	import { SetUsrData,InitAI } from "@/utils/SetData.js"
 	export default {
-		onLaunch: function() {
+		onLaunch() {
 			console.log('App Launch')
 			if (uni.getSystemInfoSync().osName === "windows"){
 				this.$store.commit('BaseConfig/setTop', 54)
@@ -9,10 +10,19 @@
 				this.$store.commit('BaseConfig/setTop', uni.getSystemInfoSync().safeArea.top)
 			}
 			
-			let res = PagesManage().then(res=>{
-				console.log("配置文件：",res.data)
-				this.$store.commit('BaseConfig/pagesDisplay',res.data)
+			//请求页面管理
+			PagesManage().then(res=>{
+				// console.log("配置文件：",res.data.page)
+				// console.log("配置文件：",res.data.preLogin)
+				this.$store.commit('BaseConfig/pagesDisplay',res.data.page)
+				if(res.data.preLogin){
+					console.log("预登录处理");
+					SetUsrData({head_url:""})
+					InitAI()
+					uni.setStorageSync('isLogin',res.data.preLogin)
+				}
 			})
+			
 			
 		},
 		onShow: function() {

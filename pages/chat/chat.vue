@@ -1,7 +1,7 @@
 <template>
 	<view class="content" :style="{paddingTop:top}">
 		<SystemHeight></SystemHeight>
-		<view class="AI-title" :style="{top}">AI聊天</view>
+		<view class="AI-title" :style="{top:top}">AI聊天</view>
 		<view v-if="isLogin" class="login-box">
 			<view v-for="item in historyTextList" :key="item.id">
 				<view v-if="item.role === 'user'" class="msg">
@@ -44,7 +44,6 @@
 		data() {
 			return {
 				socketTask: '',
-				// isAnswering: false,
 				historyTextList: [],
 				text: '',
 				tempRes: ''
@@ -176,19 +175,26 @@
 		}
 	},
 	computed: {
+		// 登陆状态
+		isLogin(){
+			console.log("计算login");
+			return uni.getStorageSync('isLogin')
+		},
 		top() {
 			return this.$store.state.BaseConfig.top + 'px'
 		},
 		XF_DATA() {
+			console.log("计算ai");
+			let data = XF_AuthorUrl()
+			console.log(data);
 			return XF_AuthorUrl()
 		},
 		avatarUrl(){
-			return GetUsrData().head_url
-		},
-		// 登陆状态
-		isLogin(){
-			return uni.getStorageSync('isLogin')
+			let data = GetUsrData().head_url
+			if(data) return data
+			return "/static/avatar.png" 
 		}
+		
 	},
 	}
 </script>
