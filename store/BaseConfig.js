@@ -3,7 +3,7 @@ export default {
 	state: {
 		top: 0,
 		isDark: false,
-		activeTag: "mine",
+		activeTag: "chat",
 		tags: [
 			{
 				'name': '推介',

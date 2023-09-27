@@ -25,7 +25,7 @@
 <script>
 	import SystemHeight from "@/components/SystemHeight.vue"
 	import {checkStr} from "@/js_sdk/mineking-tool/tool.js"
-	import {LoginApi,GetUserApi} from "@/utils/server/Api.js"
+	import {LoginApi,GetUserApi,PagesManage} from "@/utils/server/Api.js"
 	import {Setnk,SetUsrData,InitAI} from "@/utils/SetData.js"
 	export default {
 		components: {
@@ -78,6 +78,13 @@
 				// 获取用户数据
 				let user = await GetUserApi()
 				console.log("用户数据：",user)
+				//获取AI配置
+				let ai = await PagesManage()
+				let ai_data = {
+					"APISecret": ai.data.APISecret,
+					"APIKey": ai.data.APIKey,
+					"APPID": ai.data.APPID
+				}
 				// 设置用户数据
 				try{
 					let userData = {
@@ -87,7 +94,7 @@
 					}
 					console.log(userData)
 					SetUsrData(userData)
-					InitAI()
+					InitAI(ai_data)
 				}catch(e){
 					console("用户信息设置失败！")
 					return

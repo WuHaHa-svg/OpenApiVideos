@@ -64,10 +64,10 @@
 		bottom: 0;
 		left: 0;
 		display: flex;
-		justify-content: space-between;
+		justify-content: space-around;
 		backdrop-filter: blur(30px);
 		.tab-box{
-			width: 25%;
+			// width: 25%;
 			height: 100%;
 			line-height: 60px;
 			text-align: center;

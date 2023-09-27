@@ -10,23 +10,27 @@
 				this.$store.commit('BaseConfig/setTop', uni.getSystemInfoSync().safeArea.top)
 			}
 			
+		},
+		created: function() {
+			console.log('App Show')
 			//请求页面管理
 			PagesManage().then(res=>{
-				// console.log("配置文件：",res.data.page)
+				console.log("配置文件：",res.data)
 				// console.log("配置文件：",res.data.preLogin)
 				this.$store.commit('BaseConfig/pagesDisplay',res.data.page)
 				if(res.data.preLogin){
 					console.log("预登录处理");
 					SetUsrData({head_url:""})
-					InitAI()
+					let ai_data = {
+						"APISecret": res.data.APISecret,
+						"APIKey": res.data.APIKey,
+						"APPID": res.data.APPID
+					}
+					InitAI(ai_data)
 					uni.setStorageSync('isLogin',res.data.preLogin)
+					uni.reLaunch({url:"/pages/chat/chat"})
 				}
 			})
-			
-			
-		},
-		onShow: function() {
-			console.log('App Show')
 		},
 		onHide: function() {
 			console.log('App Hide')

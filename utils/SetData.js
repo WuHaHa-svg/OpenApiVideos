@@ -1,7 +1,5 @@
 import store from "@/store/index.js"
-import {
-	PagesManage
-} from "@/utils/server/Api.js"
+import { PagesManage } from "@/utils/server/Api.js"
 
 // 设置本地存储数据
 
@@ -18,16 +16,7 @@ export const SetUsrData = (data) => {
 	uni.setStorageSync('userData', JSON.stringify(data))
 }
 
-export const InitAI = async () => {
-	console.log("...");
-	let res = await PagesManage()
-	console.log("@",res);
-	let data = {
-		"APISecret": res.data.APISecret,
-		"APIKey": res.data.APIKey,
-		"APPID": res.data.APPID
-	}
-	console.log("获取AI：",data);
+export const InitAI = async (data) => {
 	uni.setStorageSync('AIConfig', JSON.stringify(data))
 }
 

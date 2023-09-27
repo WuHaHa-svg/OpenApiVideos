@@ -18,6 +18,7 @@ const toast = (title,icon)=>{
 
 Vue.prototype.$toast = toast
 
+
 App.mpType = 'app'
 const app = new Vue({
   ...App,

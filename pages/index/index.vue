@@ -5,7 +5,7 @@
 		<!-- swiper视频列表 -->
 		<VideoList ref="VideoList"></VideoList>
 		<!-- 底部导航栏 -->
-		<TabBar></TabBar>
+		<TabBar ref="tab"></TabBar>
 	</view>
 </template>
 
@@ -16,6 +16,14 @@
 	export default {
 		data() {
 			return {
+			}
+		},
+		onLoad() {
+			let name = this.$store.state.BaseConfig.activeTag
+			console.log(name);
+			if(name !== "index"){
+				this.$destroy()
+				// this.$refs.tab.goTo(name)
 			}
 		},
 		components:{TabBar,IndexNav,VideoList},
