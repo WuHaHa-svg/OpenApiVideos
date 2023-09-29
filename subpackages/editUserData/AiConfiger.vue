@@ -29,7 +29,9 @@
 </template>
 
 <script>
-	import { SetAI,InitAI } from '@/utils/SetData';
+	import { SetAI,InitAI } from '@/utils/SetData'
+	import { PagesManage } from "@/utils/server/Api.js"
+	
 	export default {
 		name: "AiConfiger",
 		props:['status'],
@@ -88,8 +90,14 @@
 				SetAI(data)
 				this.$emit("Confm")
 			},
-			init(){
-				InitAI()
+			async init(){
+				let res = await PagesManage()
+				let ai_data = {
+					"APISecret": res.data.APISecret,
+					"APIKey": res.data.APIKey,
+					"APPID": res.data.APPID
+				}
+				InitAI(ai_data)
 				this.$emit("init")
 			}
 		}

@@ -16,7 +16,7 @@
 				</view>
 			</view>
 			<view class="input-area">
-				<textarea class="input" v-model="text" placeholder="请开始提问吧!"></textarea>
+				<textarea class="input" :show-confirm-bar="false" v-model="text" placeholder="请开始提问吧!"></textarea>
 				<view class="send" @click="send">发送</view>
 			</view>
 		</view>
@@ -33,8 +33,8 @@
 	import UserCard from "@/components/UserCard.vue"
 	import { XF_AuthorUrl } from "@/utils/server/AuthorUrlGener.js"
 	import { GetAIMsgs, GetUsrData } from "@/utils/GetData"
-	import { SetAIMsgs } from "@/utils/SetData"
 	import { uniqueId } from "@/js_sdk/mineking-tool/tool.js"
+	import { SetAIMsgs } from "@/utils/SetData.js"
 	export default {
 		components: {
 			SystemHeight,
@@ -51,7 +51,6 @@
 		},
 		created() {
 			this.historyTextList = GetAIMsgs()
-			console.log("@",GetAIMsgs())
 		},
 		mounted() {
 			this.toBottom()
@@ -177,7 +176,7 @@
 	computed: {
 		// 登陆状态
 		isLogin(){
-			console.log("计算login");
+			console.log("计算登录");
 			return uni.getStorageSync('isLogin')
 		},
 		top() {

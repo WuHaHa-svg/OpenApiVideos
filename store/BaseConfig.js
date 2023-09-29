@@ -43,11 +43,11 @@ export default {
 		],
 		isUpload: false,
 		pagesManage: {
-			"index":true,
-			"allDimc":true,
-			"wallpaper":true,
-			"chat":true,
-			"mine":true
+			"index":false,
+			"allDimc":false,
+			"wallpaper":false,
+			"chat":false,
+			"mine":false
 		}
 	},
 	mutations: {

@@ -4,7 +4,13 @@
 
 ## 项目简介
 
-​	本项目是我独立开发的一个简单vue2版本的uniapp微信小程序项目，用户可以登陆注册、可以滑动刷小视频、可以发送图文动态等功能，项目灵感是我学习前端的时候无意中了解到了OpenApi这个后端开源项目，并查看了这个开源项目提供的SwaggerUI，并逐个测试了一下，发现该项目提供的Api质量还不错，正好自己就从业于前端，因此就想调用OpenApi提供的接口自己开发一个前端项目实现接口提供的功能，巩固并提升自己独立开发的能力，整个开发过程我也是边看文档边开发，有时候注释写的有点不够具体，为了进一步提升一下项目内代码的可读性，我后期专门细化了一下对代码的注释，欢迎大家clone此项目哦！
+​	本项目是我独立开发的一个简单vue2版本的uniapp微信小程序项目，用户可以登陆注册、可以滑动刷小视频、可以发送图文动态以及可以和AI对话等，项目灵感是我学习前端的时候无意中了解到了OpenApi这个后端开源项目，并查看了这个开源项目提供的SwaggerUI，并逐个测试了一下，发现该项目提供的Api质量还不错，正好自己就从业于前端，因此就想调用OpenApi提供的接口自己开发一个前端项目实现接口提供的功能，巩固并提升自己独立开发的能力，由于最近AI非常流行，市场上也有好多AI类型的产品，于是后来我也为大家安排了这个功能。为了进一步提升一下项目内代码的可读性，我后期专门细化了一下对代码的注释，欢迎大家clone此项目哦！
+
+------
+
+## 技术栈
+
+UNI-App、Vue2、VueX、scss、ES6、Promise、Git。
 
 ------
 
@@ -134,6 +140,12 @@ OpenApiVideos
 
 - ![image-20230912141426738](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230912141426738.png)
 
+- ### AI-Chat
+
+- 可以在此页面和AI对话。
+
+- ![image-20230929150132488](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230929150132488.png)
+
 - ### 我的
   - #### 已登录界面
 
@@ -171,7 +183,7 @@ OpenApiVideos
 
   目前小程序是体验版，因为审核大大太严格，审核根本过不了，我会接到体验申请资格后及时同意的
 
-  ![image-20230912141653344](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230912141653344.png)
+  ![image-20230929150617020](https://gitee.com/WuHaHa-svg/open-api-videos/raw/MarkDownImgs/img/image-20230929150617020.png)
 
 - ### 下载本项目并部署到自己的微信小程序（可以从git导入，也可以下载到本地再导入）
 
@@ -190,15 +202,3 @@ OpenApiVideos
 - ### 如果有任何疑惑，欢迎添加微信：WuHaHa-Unavailable咨询。备注：OpenApiVideos。
 
 - ### 或者发送邮箱到：1813995050@qq.com
-
-------
-
-## 项目致谢
-
-感谢Decloud插件市场作者： [uv_UI ](https://ext.dcloud.net.cn/publisher?id=89985)提供的[uv-code-input 验证码输入 全面兼容vue3+2、app、h5、小程序等多端 - DCloud 插件市场](https://ext.dcloud.net.cn/plugin?id=12306)
-
-感谢Decloud插件市场作者：[mine_king](https://ext.dcloud.net.cn/publisher?id=317001)提供的[JS常用工具函数 - DCloud 插件市场](https://ext.dcloud.net.cn/plugin?id=1994)
-
-感谢OpenApi项目团队提供的开源项目[Swagger UI (apiopen.top)](https://api.apiopen.top/swagger/index.html#/)。
-
-感谢阿里矢量图标库[iconfont-阿里巴巴矢量图标库](https://www.iconfont.cn/)。

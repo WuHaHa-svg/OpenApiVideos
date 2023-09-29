@@ -27,6 +27,9 @@
 			};
 		},
 		props:['left','right'],
+		created() {
+			if(this.$store.state.BaseConfig.activeTag === "chat") this.$destroy()
+		},
 		components:{SystemHeight},
 		computed:{
 			top(){
